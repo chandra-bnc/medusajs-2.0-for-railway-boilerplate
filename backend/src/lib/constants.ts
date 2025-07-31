@@ -100,3 +100,10 @@ export const WORKER_MODE =
  * Disable Admin
  */
 export const SHOULD_DISABLE_ADMIN = process.env.MEDUSA_DISABLE_ADMIN === 'true'
+
+/**
+ * (optional) Shipstation configuration
+ */
+export const SHIPSTATION_API_KEY = process.env.SHIPSTATION_API_KEY;
+export const SHIPSTATION_API_SECRET = process.env.SHIPSTATION_API_SECRET;
+export const SHIPSTATION_PARTNER_API_KEY = process.env.SHIPSTATION_PARTNER_API_KEY;
