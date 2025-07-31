@@ -30,6 +30,7 @@
     "@medusajs/js-sdk": "latest",
     "@medusajs/medusa": "latest",
     "@medusajs/dashboard": "latest",
+    "@medusajs/icons": "latest",
     "@medusajs/notification-sendgrid": "latest",
     "@medusajs/payment-stripe": "latest",
     "@medusajs/types": "latest",
