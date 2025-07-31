@@ -23,16 +23,16 @@
     "patch-admin": "node patch-admin.js"
   },
   "dependencies": {
-    "@medusajs/admin-sdk": "2.8.4",
-    "@medusajs/cli": "2.8.4",
+    "@medusajs/admin-sdk": "latest",
+    "@medusajs/cli": "latest",
     "@medusajs/core-flows": "latest",
-    "@medusajs/framework": "2.8.4",
-    "@medusajs/js-sdk": "2.8.4",
-    "@medusajs/medusa": "2.8.4",
+    "@medusajs/framework": "latest",
+    "@medusajs/js-sdk": "latest",
+    "@medusajs/medusa": "latest",
     "@medusajs/dashboard": "latest",
     "@medusajs/notification-sendgrid": "latest",
     "@medusajs/payment-stripe": "latest",
-    "@medusajs/ui": "4.0.14",
+    "@medusajs/ui": "latest",
     "@medusajs/workflow-engine-redis": "latest",
     "@mikro-orm/core": "6.4.3",
     "@mikro-orm/knex": "6.4.3",
@@ -49,8 +49,8 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@medusajs/test-utils": "2.8.4",
-    "@medusajs/ui-preset": "2.8.4",
+    "@medusajs/test-utils": "latest",
+    "@medusajs/ui-preset": "latest",
     "@mikro-orm/cli": "6.4.3",
     "@swc/core": "^1.5.7",
     "@swc/jest": "^0.2.36",
