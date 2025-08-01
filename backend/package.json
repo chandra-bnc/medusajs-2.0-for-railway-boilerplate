@@ -14,14 +14,13 @@
     "b2b"
   ],
   "scripts": {
-    "build": "medusa build && node patch-admin.js && node src/scripts/postBuild.js",
+    "build": "medusa build && node src/scripts/postBuild.js",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "ib": "init-backend",
     "start": "init-backend && cd .medusa/server && medusa start --verbose",
     "dev": "medusa develop",
     "email:dev": "email dev --dir=./src/modules/email-notifications/templates --port=3002",
-    "patch-admin": "node patch-admin.js",
-    "postinstall": "node patch-admin.js"
+    "patch-admin": "node patch-admin.js"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "latest",

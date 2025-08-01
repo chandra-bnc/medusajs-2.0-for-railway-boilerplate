@@ -30,9 +30,33 @@ if (fs.existsSync(envPath)) {
   );
 }
 
+// Copy patch-admin.js for admin UI branding
+const patchAdminPath = path.join(process.cwd(), 'patch-admin.js');
+if (fs.existsSync(patchAdminPath)) {
+  fs.copyFileSync(
+    patchAdminPath,
+    path.join(MEDUSA_SERVER_PATH, 'patch-admin.js')
+  );
+}
+
 // Install dependencies
 console.log('Installing dependencies in .medusa/server...');
 execSync('npm ci --omit=dev', { 
   cwd: MEDUSA_SERVER_PATH,
   stdio: 'inherit'
 });
+
+// Apply admin UI branding patch
+const patchAdminServerPath = path.join(MEDUSA_SERVER_PATH, 'patch-admin.js');
+if (fs.existsSync(patchAdminServerPath)) {
+  console.log('Applying admin UI branding patch...');
+  try {
+    execSync('node patch-admin.js', { 
+      cwd: MEDUSA_SERVER_PATH,
+      stdio: 'inherit'
+    });
+    console.log('Admin UI branding patch applied successfully!');
+  } catch (error) {
+    console.log('Admin UI branding patch failed, continuing without it:', error.message);
+  }
+}
