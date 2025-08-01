@@ -176,6 +176,8 @@ export async function login(_currentState: unknown, formData: FormData) {
   } catch (error: any) {
     return error.toString()
   }
+  
+  redirect("/account")
 }
 
 export async function signout(countryCode: string, customerId: string) {
