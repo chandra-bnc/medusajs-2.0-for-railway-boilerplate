@@ -30,12 +30,24 @@ if (fs.existsSync(envPath)) {
   );
 }
 
-// Copy patch-admin.js for admin UI branding
+// Copy and modify patch-admin.js for admin UI branding
 const patchAdminPath = path.join(process.cwd(), 'patch-admin.js');
 if (fs.existsSync(patchAdminPath)) {
-  fs.copyFileSync(
-    patchAdminPath,
-    path.join(MEDUSA_SERVER_PATH, 'patch-admin.js')
+  // Read the original patch script
+  let patchContent = fs.readFileSync(patchAdminPath, 'utf8');
+  
+  // Replace __dirname with the correct path to the server directory
+  // This ensures the patch script looks for node_modules in the right place
+  patchContent = patchContent.replace(
+    /\$\{__dirname\}/g, 
+    `"${MEDUSA_SERVER_PATH}"`
+  );
+  
+  // Write the modified script to the server directory
+  fs.writeFileSync(
+    path.join(MEDUSA_SERVER_PATH, 'patch-admin.js'),
+    patchContent,
+    'utf8'
   );
 }
 
