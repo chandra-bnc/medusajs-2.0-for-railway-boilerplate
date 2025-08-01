@@ -1,6 +1,6 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { addToCartWorkflow } from "@medusajs/medusa/core-flows";
-import { ContainerRegistrationKeys } from "@medusajs/utils";
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { StoreAddLineItemsBulkType } from "../../../validators";
 
 export async function POST(
@@ -24,7 +24,10 @@ export async function POST(
 
   const workflowInput = {
     cart_id: cart.id,
-    items: line_items,
+    items: line_items.map(item => ({
+      variant_id: item.variant_id,
+      quantity: item.quantity || 1,
+    })),
   };
 
   await addToCartWorkflow(req.scope).run({

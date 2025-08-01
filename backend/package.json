@@ -34,6 +34,8 @@
     "@medusajs/payment-stripe": "latest",
     "@medusajs/types": "latest",
     "@medusajs/ui": "latest",
+    "@medusajs/utils": "latest",
+    "@medusajs/modules-sdk": "latest",
     "@medusajs/workflow-engine-redis": "latest",
     "@medusajs/workflows-sdk": "latest",
     "@mikro-orm/core": "6.4.3",
