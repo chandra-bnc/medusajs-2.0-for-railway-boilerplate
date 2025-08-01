@@ -5,7 +5,7 @@ import { ArrowRightMini, XMark } from "@medusajs/icons"
 import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
 
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
 import { HttpTypes } from "@medusajs/types"
 
@@ -91,7 +91,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} myBoxNCase Store. All rights
                         reserved.
                       </Text>
                     </div>

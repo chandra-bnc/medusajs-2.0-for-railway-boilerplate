@@ -1,14 +1,14 @@
 import { Text } from "@medusajs/ui"
 
-import Medusa from "../../../common/icons/medusa"
+import BoxNCase from "../../../common/icons/boxncase"
 import NextJs from "../../../common/icons/nextjs"
 
-const MedusaCTA = () => {
+const BoxNCaseCTA = () => {
   return (
     <Text className="flex gap-x-2 txt-compact-small-plus items-center">
       Powered by
-      <a href="https://www.medusajs.com" target="_blank" rel="noreferrer">
-        <Medusa fill="#9ca3af" className="fill-[#9ca3af]" />
+      <a href="https://boxncase.com" target="_blank" rel="noreferrer">
+        <BoxNCase fill="#9ca3af" className="fill-[#9ca3af]" />
       </a>
       &
       <a href="https://nextjs.org" target="_blank" rel="noreferrer">
@@ -18,4 +18,4 @@ const MedusaCTA = () => {
   )
 }
 
-export default MedusaCTA
+export default BoxNCaseCTA

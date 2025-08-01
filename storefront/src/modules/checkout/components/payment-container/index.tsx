@@ -1,12 +1,12 @@
+import { isManual, isAuthorizeNet } from "@/lib/constants"
+import PaymentTest from "@/modules/checkout/components/payment-test"
+import Divider from "@/modules/common/components/divider"
+import Radio from "@/modules/common/components/radio"
 import { RadioGroup } from "@headlessui/react"
-import { InformationCircleSolid } from "@medusajs/icons"
-import { Text, Tooltip, clx } from "@medusajs/ui"
-import React from "react"
-
-import Radio from "@modules/common/components/radio"
-
-import PaymentTest from "../payment-test"
-import { isManual } from "@lib/constants"
+import { Text, clx } from "@medusajs/ui"
+import React, { type JSX } from "react"
+import { AuthorizeNetProvider, Card } from "authorizenet-react"
+import SkeletonCardDetails from "@/modules/skeletons/components/skeleton-cart-item"
 
 type PaymentContainerProps = {
   paymentProviderId: string
@@ -30,7 +30,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
         value={paymentProviderId}
         disabled={disabled}
         className={clx(
-          "flex flex-col gap-y-2 text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
+          "flex flex-col gap-y-2 text-small-regular cursor-pointer py-2",
           {
             "border-ui-border-interactive":
               selectedPaymentOptionId === paymentProviderId,
@@ -55,7 +55,71 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
           <PaymentTest className="small:hidden text-[10px]" />
         )}
       </RadioGroup.Option>
+      <Divider />
     </>
+  )
+}
+
+export const AuthorizeNetCardContainer = ({
+  paymentProviderId,
+  selectedPaymentOptionId,
+  paymentInfoMap,
+  disabled = false,
+  setCardBrand,
+  setError,
+  setCardComplete,
+  setOpaqueData,
+  cardComplete
+}: Omit<PaymentContainerProps, "children"> & {
+  setCardBrand: (brand: string) => void
+  setError: (error: string | null) => void
+  setCardComplete: (complete: boolean) => void
+  setOpaqueData?: (data: any) => void
+  cardComplete: boolean
+}) => {
+  return (
+    <PaymentContainer
+      paymentProviderId={paymentProviderId}
+      selectedPaymentOptionId={selectedPaymentOptionId}
+      paymentInfoMap={paymentInfoMap}
+      disabled={disabled}
+    >
+      {selectedPaymentOptionId === paymentProviderId &&
+        ((isAuthorizeNet(selectedPaymentOptionId)) ? (
+          <AuthorizeNetProvider 
+            apiLoginId={process.env.NEXT_PUBLIC_API_LOGIN_ID} 
+            clientKey={process.env.NEXT_PUBLIC_CLIENT_KEY}>
+             <div className="my-4 transition-all duration-150 ease-in-out">
+              <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                Enter your card details:
+              </Text>
+              <Card
+                options={{
+                  style: {
+                    base: {
+                      fontSize: '16px',
+                      color: '#424770',
+                      '::placeholder': {
+                        color: '#aab7c4'
+                      }
+                    },
+                    invalid: {
+                      color: '#9e2146'
+                    }
+                  }
+                
+                }}
+                onChange={(e:any)=>{ 
+                  setCardComplete(e.complete)
+                  setError(e.error?.message || null)
+                }}
+              />
+            </div>  
+          </AuthorizeNetProvider>
+        ) : (
+          <SkeletonCardDetails />
+        ))}
+    </PaymentContainer>
   )
 }
 

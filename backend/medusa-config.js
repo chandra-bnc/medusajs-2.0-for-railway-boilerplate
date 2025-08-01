@@ -1,4 +1,7 @@
 import { loadEnv, Modules, defineConfig } from '@medusajs/utils';
+import { COMPANY_MODULE } from './src/modules/company';
+import { APPROVAL_MODULE } from './src/modules/approval';
+import { QUOTE_MODULE } from './src/modules/quote';
 import {
   ADMIN_CORS,
   AUTH_CORS,
@@ -137,6 +140,17 @@ const medusaConfig = {
       },
     }] : [])
   ],
+  modules: {
+    [COMPANY_MODULE]: {
+      resolve: "./src/modules/company",
+    },
+    [QUOTE_MODULE]: {
+      resolve: "./src/modules/quote",
+    },
+    [APPROVAL_MODULE]: {
+      resolve: "./src/modules/approval",
+    },
+  },
   plugins: [
   ...(MEILISEARCH_HOST && MEILISEARCH_ADMIN_KEY ? [{
       resolve: '@rokmohar/medusa-plugin-meilisearch',
