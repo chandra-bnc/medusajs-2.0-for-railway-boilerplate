@@ -94,13 +94,25 @@ try {
   const VITE_CACHE_PATH = `${__dirname}/node_modules/@medusajs/admin-bundler/node_modules/.vite`;
 
   console.log("Starting admin patching...");
+  console.log("__dirname:", __dirname);
+  console.log("Looking for dashboard at:", `${__dirname}/node_modules/@medusajs/dashboard/dist`);
 
   // Check if dashboard dist folder exists
   const dashboardDistPath = `${__dirname}/node_modules/@medusajs/dashboard/dist`;
   if (!fs.existsSync(dashboardDistPath)) {
     console.log("Dashboard dist folder not found, skipping admin patching.");
+    console.log("Checking if dashboard package exists at:", `${__dirname}/node_modules/@medusajs/dashboard`);
+    console.log("Dashboard package exists:", fs.existsSync(`${__dirname}/node_modules/@medusajs/dashboard`));
+    if (fs.existsSync(`${__dirname}/node_modules/@medusajs/dashboard`)) {
+      const dashboardFiles = fs.readdirSync(`${__dirname}/node_modules/@medusajs/dashboard`);
+      console.log("Dashboard package contents:", dashboardFiles);
+    }
     process.exit(0);
   }
+  
+  console.log("Dashboard dist folder found!");
+  const distFiles = fs.readdirSync(dashboardDistPath);
+  console.log("Dashboard dist files:", distFiles.slice(0, 10));
 
   // 1) Welcome to Medusa -> Welcome to myBoxNCase
   const CHUNK_1 = findChunkFileByContainingText("Welcome to Medusa");

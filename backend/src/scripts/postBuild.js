@@ -62,6 +62,16 @@ execSync('npm ci --omit=dev', {
 const patchAdminServerPath = path.join(MEDUSA_SERVER_PATH, 'patch-admin.js');
 if (fs.existsSync(patchAdminServerPath)) {
   console.log('Applying admin UI branding patch...');
+  console.log('Checking if dashboard dist exists...');
+  const dashboardDistPath = path.join(MEDUSA_SERVER_PATH, 'node_modules/@medusajs/dashboard/dist');
+  console.log('Dashboard dist path:', dashboardDistPath);
+  console.log('Dashboard dist exists:', fs.existsSync(dashboardDistPath));
+  
+  if (fs.existsSync(dashboardDistPath)) {
+    const distFiles = fs.readdirSync(dashboardDistPath);
+    console.log('Files in dashboard dist:', distFiles.slice(0, 10)); // Show first 10 files
+  }
+  
   try {
     execSync('node patch-admin.js', { 
       cwd: MEDUSA_SERVER_PATH,
@@ -70,5 +80,8 @@ if (fs.existsSync(patchAdminServerPath)) {
     console.log('Admin UI branding patch applied successfully!');
   } catch (error) {
     console.log('Admin UI branding patch failed, continuing without it:', error.message);
+    console.log('Error details:', error);
   }
+} else {
+  console.log('patch-admin.js not found in server directory');
 }
