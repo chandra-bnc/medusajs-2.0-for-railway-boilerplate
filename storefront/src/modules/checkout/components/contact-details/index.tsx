@@ -6,7 +6,7 @@ import { ApprovalStatusType, B2BCart, B2BCustomer } from "@/types"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { clx, Container, Heading, Text } from "@medusajs/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useActionState, useCallback } from "react"
+import { useCallback, useState, useTransition } from "react"
 import ContactDetailsForm from "../contact-details-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
@@ -18,11 +18,11 @@ const ContactDetails = ({
   cart: B2BCart | null
   customer: B2BCustomer | null
 }) => {
-  if (!cart) return null
-
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
+
+  if (!cart) return null
 
   const isOpen = searchParams.get("step") === "contact-details"
   const isCompleted =
@@ -56,7 +56,15 @@ const ContactDetails = ({
     })
   }
 
-  const [message, formAction] = useActionState(setContactDetails, null)
+  const [message, setMessage] = useState(null)
+  const [isPending, startTransition] = useTransition()
+  
+  const formAction = async (formData: FormData) => {
+    startTransition(async () => {
+      const result = await setContactDetails(null, formData)
+      setMessage(result)
+    })
+  }
 
   const handleSubmit = (formData: FormData) => {
     formAction(formData)
