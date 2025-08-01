@@ -23,9 +23,6 @@ importers:
       '@medusajs/framework':
         specifier: latest
         version: 2.8.8(@medusajs/cli@2.8.8(@mikro-orm/core@6.4.3)(@mikro-orm/knex@6.4.3(@mikro-orm/core@6.4.3)(pg@8.16.3))(@mikro-orm/migrations@6.4.3(@mikro-orm/core@6.4.3)(@types/node@20.19.9)(pg@8.16.3))(@mikro-orm/postgresql@6.4.3(@mikro-orm/core@6.4.3))(awilix@8.0.1)(ioredis@5.7.0)(pg@8.16.3)(vite@5.4.19(@types/node@20.19.9)))(@mikro-orm/cli@6.4.3(pg@8.16.3))(@mikro-orm/core@6.4.3)(@mikro-orm/knex@6.4.3(@mikro-orm/core@6.4.3)(pg@8.16.3))(@mikro-orm/migrations@6.4.3(@mikro-orm/core@6.4.3)(@types/node@20.19.9)(pg@8.16.3))(@mikro-orm/postgresql@6.4.3(@mikro-orm/core@6.4.3))(awilix@8.0.1)(ioredis@5.7.0)(pg@8.16.3)(vite@5.4.19(@types/node@20.19.9))
-      '@medusajs/icons':
-        specifier: latest
-        version: 2.8.8(react@18.3.1)
       '@medusajs/js-sdk':
         specifier: latest
         version: 2.8.8(awilix@8.0.1)(ioredis@5.7.0)(vite@5.4.19(@types/node@20.19.9))
@@ -117,9 +114,6 @@ importers:
       '@types/react-dom':
         specifier: ^18.2.25
         version: 18.3.7(@types/react@18.3.23)
-      '@types/react-router-dom':
-        specifier: ^5.3.3
-        version: 5.3.3
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.19.9)(ts-node@10.9.2(@swc/core@1.13.3(@swc/helpers@0.5.17))(@types/node@20.19.9)(typescript@5.9.2))
@@ -135,9 +129,6 @@ importers:
       react-email:
         specifier: ^3.0.4
         version: 3.0.7(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-router-dom:
-        specifier: ^6.8.0
-        version: 6.20.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@swc/core@1.13.3(@swc/helpers@0.5.17))(@types/node@20.19.9)(typescript@5.9.2)
@@ -3934,9 +3925,6 @@ packages:
   '@types/graceful-fs@4.1.9':
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
 
-  '@types/history@4.7.11':
-    resolution: {integrity: sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==}
-
   '@types/http-errors@2.0.5':
     resolution: {integrity: sha512-r8Tayk8HJnX0FztbZN7oVqGccWgw98T/0neJphO91KkmOzug1KkofZURD4UaD5uH8AqcFLfdPErnBod0u71/qg==}
 
@@ -3983,12 +3971,6 @@ packages:
     resolution: {integrity: sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ==}
     peerDependencies:
       '@types/react': ^18.0.0
-
-  '@types/react-router-dom@5.3.3':
-    resolution: {integrity: sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==}
-
-  '@types/react-router@5.1.20':
-    resolution: {integrity: sha512-jGjmu/ZqS7FjSH6owMcD5qpq19+1RS9DeVRqfl1FeBMxTDQAGwlMWOcs52NDoXaNKyG3d1cYQFMs9rCrb88o9Q==}
 
   '@types/react@18.3.23':
     resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
@@ -12456,8 +12438,6 @@ snapshots:
     dependencies:
       '@types/node': 20.19.9
 
-  '@types/history@4.7.11': {}
-
   '@types/http-errors@2.0.5': {}
 
   '@types/istanbul-lib-coverage@2.0.6': {}
@@ -12501,17 +12481,6 @@ snapshots:
 
   '@types/react-dom@18.3.7(@types/react@18.3.23)':
     dependencies:
-      '@types/react': 18.3.23
-
-  '@types/react-router-dom@5.3.3':
-    dependencies:
-      '@types/history': 4.7.11
-      '@types/react': 18.3.23
-      '@types/react-router': 5.1.20
-
-  '@types/react-router@5.1.20':
-    dependencies:
-      '@types/history': 4.7.11
       '@types/react': 18.3.23
 
   '@types/react@18.3.23':
