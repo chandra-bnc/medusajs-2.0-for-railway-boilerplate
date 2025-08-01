@@ -8,7 +8,7 @@ import { B2BCart } from "@/types"
 import { ChevronDownMini, ChevronUpMini } from "@medusajs/icons"
 import { Badge, Heading, Input, Text } from "@medusajs/ui"
 import { usePathname } from "next/navigation"
-import React, { useActionState } from "react"
+import React, { useState, useTransition } from "react"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
 
@@ -58,7 +58,15 @@ const PromotionCode: React.FC<PromotionCodeProps> = ({ cart }) => {
     }
   }
 
-  const [message, formAction] = useActionState(submitPromotionForm, null)
+  const [message, setMessage] = useState(null)
+  const [isPending, startTransition] = useTransition()
+  
+  const formAction = async (formData: FormData) => {
+    startTransition(async () => {
+      const result = await submitPromotionForm(null, formData)
+      setMessage(result)
+    })
+  }
 
   return (
     <div className="w-full bg-white flex flex-col">

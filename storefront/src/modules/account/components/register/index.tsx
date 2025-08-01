@@ -8,7 +8,7 @@ import { SubmitButton } from "@/modules/checkout/components/submit-button"
 import Input from "@/modules/common/components/input"
 import { HttpTypes } from "@medusajs/types"
 import { Checkbox, Label, Select, Text } from "@medusajs/ui"
-import { ChangeEvent, useActionState, useState } from "react"
+import { ChangeEvent, useState, useTransition } from "react"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
@@ -59,7 +59,15 @@ const placeholder = ({
 }
 
 const Register = ({ setCurrentView, regions }: Props) => {
-  const [message, formAction] = useActionState(signup, null)
+  const [message, setMessage] = useState(null)
+  const [isPending, startTransition] = useTransition()
+  
+  const formAction = async (formData: FormData) => {
+    startTransition(async () => {
+      const result = await signup(null, formData)
+      setMessage(result)
+    })
+  }
   const [termsAccepted, setTermsAccepted] = useState(false)
   const [formData, setFormData] = useState<FormData>(initialFormData)
 

@@ -5,14 +5,22 @@ import { SubmitButton } from "@/modules/checkout/components/submit-button"
 import Button from "@/modules/common/components/button"
 import Input from "@/modules/common/components/input"
 import { Checkbox, Text } from "@medusajs/ui"
-import { useActionState } from "react"
+import { useState, useTransition } from "react"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
 }
 
 const Login = ({ setCurrentView }: Props) => {
-  const [message, formAction] = useActionState(login, null)
+  const [message, setMessage] = useState(null)
+  const [isPending, startTransition] = useTransition()
+  
+  const formAction = async (formData: FormData) => {
+    startTransition(async () => {
+      const result = await login(null, formData)
+      setMessage(result)
+    })
+  }
 
   return (
     <div

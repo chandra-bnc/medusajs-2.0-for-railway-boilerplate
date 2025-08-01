@@ -15,7 +15,7 @@ import { B2BCustomer } from "@/types/global"
 import { PencilSquare as Edit, Trash } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import { Heading, Text, clx } from "@medusajs/ui"
-import React, { useActionState, useEffect, useState } from "react"
+import React, { useEffect, useState, useTransition } from "react"
 
 type EditAddressProps = {
   region: HttpTypes.StoreRegion
@@ -34,11 +34,23 @@ const EditAddress: React.FC<EditAddressProps> = ({
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)
 
-  const [formState, formAction] = useActionState(updateCustomerAddress, {
+  const [formState, setFormState] = useState({
     success: false,
     error: null,
     addressId: address.id,
   })
+  const [isPending, startTransition] = useTransition()
+  
+  const formAction = async (formData: FormData) => {
+    startTransition(async () => {
+      const result = await updateCustomerAddress({
+        success: false,
+        error: null,
+        addressId: address.id,
+      }, formData)
+      setFormState(result)
+    })
+  }
 
   const close = () => {
     setSuccessState(false)

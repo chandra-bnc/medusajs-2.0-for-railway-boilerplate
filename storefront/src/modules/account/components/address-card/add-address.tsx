@@ -10,16 +10,27 @@ import Modal from "@/modules/common/components/modal"
 import { Plus } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
-import { useActionState, useEffect, useState } from "react"
+import { useEffect, useState, useTransition } from "react"
 
 const AddAddress = ({ region }: { region: HttpTypes.StoreRegion }) => {
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)
 
-  const [formState, formAction] = useActionState(addCustomerAddress, {
+  const [formState, setFormState] = useState({
     success: false,
     error: null,
   })
+  const [isPending, startTransition] = useTransition()
+  
+  const formAction = async (formData: FormData) => {
+    startTransition(async () => {
+      const result = await addCustomerAddress({
+        success: false,
+        error: null,
+      }, formData)
+      setFormState(result)
+    })
+  }
 
   const close = () => {
     setSuccessState(false)
