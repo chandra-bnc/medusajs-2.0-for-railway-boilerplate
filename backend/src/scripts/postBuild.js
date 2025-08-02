@@ -30,26 +30,7 @@ if (fs.existsSync(envPath)) {
   );
 }
 
-// Copy and modify patch-admin.js for admin UI branding
-const patchAdminPath = path.join(process.cwd(), 'patch-admin.js');
-if (fs.existsSync(patchAdminPath)) {
-  // Read the original patch script
-  let patchContent = fs.readFileSync(patchAdminPath, 'utf8');
-  
-  // Replace __dirname with the correct path to the server directory
-  // This ensures the patch script looks for node_modules in the right place
-  patchContent = patchContent.replace(
-    /\$\{__dirname\}/g, 
-    `"${MEDUSA_SERVER_PATH}"`
-  );
-  
-  // Write the modified script to the server directory
-  fs.writeFileSync(
-    path.join(MEDUSA_SERVER_PATH, 'patch-admin.js'),
-    patchContent,
-    'utf8'
-  );
-}
+// Note: Admin branding is now handled through admin widgets instead of patching
 
 // Install dependencies
 console.log('Installing dependencies in .medusa/server...');
@@ -58,30 +39,4 @@ execSync('npm ci --omit=dev', {
   stdio: 'inherit'
 });
 
-// Apply admin UI branding patch
-const patchAdminServerPath = path.join(MEDUSA_SERVER_PATH, 'patch-admin.js');
-if (fs.existsSync(patchAdminServerPath)) {
-  console.log('Applying admin UI branding patch...');
-  console.log('Checking if dashboard dist exists...');
-  const dashboardDistPath = path.join(MEDUSA_SERVER_PATH, 'node_modules/@medusajs/dashboard/dist');
-  console.log('Dashboard dist path:', dashboardDistPath);
-  console.log('Dashboard dist exists:', fs.existsSync(dashboardDistPath));
-  
-  if (fs.existsSync(dashboardDistPath)) {
-    const distFiles = fs.readdirSync(dashboardDistPath);
-    console.log('Files in dashboard dist:', distFiles.slice(0, 10)); // Show first 10 files
-  }
-  
-  try {
-    execSync('node patch-admin.js', { 
-      cwd: MEDUSA_SERVER_PATH,
-      stdio: 'inherit'
-    });
-    console.log('Admin UI branding patch applied successfully!');
-  } catch (error) {
-    console.log('Admin UI branding patch failed, continuing without it:', error.message);
-    console.log('Error details:', error);
-  }
-} else {
-  console.log('patch-admin.js not found in server directory');
-}
+console.log('Admin branding is now handled through admin widgets - no patching needed.');

@@ -26,6 +26,12 @@ const customRouteConfig = defineRouteConfig({
       path: "/approvals",
       page: () => import("./routes/approvals/page"),
     },
+  ],
+  widgets: [
+    {
+      zone: "login.before",
+      widget: () => import("./widgets/global-branding"),
+    },
   ]
 })
 
