@@ -15,9 +15,10 @@
   ],
   "scripts": {
     "build": "medusa build && node src/scripts/postBuild.js",
+    "postinstall": "echo '📦 POSTINSTALL SCRIPT RUNNING' && node src/scripts/postBuild.js || echo '⚠️ PostBuild script failed or not found'",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "ib": "init-backend",
-    "start": "init-backend && cd .medusa/server && medusa start --verbose",
+    "start": "init-backend && (echo '🔧 RUNNING ADMIN PATCH ON START' && node patch-admin-runtime.js || echo '⚠️ Admin patch failed') && cd .medusa/server && medusa start --verbose",
     "dev": "medusa develop",
     "email:dev": "email dev --dir=./src/modules/email-notifications/templates --port=3002",
     "patch-admin": "node patch-admin.js"
