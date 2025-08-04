@@ -36,32 +36,7 @@ const customRouteConfig = defineRouteConfig({
       label: "BoxNCaseAI Marketer (Request Access)",
     },
   ],
-  widgets: [
-    {
-      zone: "order.list.before",
-      widget: {
-        Component: GlobalAdminStyles,
-      },
-    },
-    {
-      zone: "product.list.before", 
-      widget: {
-        Component: GlobalAdminStyles,
-      },
-    },
-    {
-      zone: "customer.list.before",
-      widget: {
-        Component: GlobalAdminStyles,
-      },
-    },
-    {
-      zone: "login.before",
-      widget: {
-        Component: GlobalAdminStyles,
-      },
-    },
-  ],
+  // Removed widgets for now to debug route visibility issues
 })
 
 export default customRouteConfig

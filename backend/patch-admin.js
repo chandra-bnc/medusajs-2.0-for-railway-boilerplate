@@ -100,14 +100,24 @@ try {
   const APP_MJS_PATH = `${__dirname}/node_modules/@medusajs/dashboard/dist/app.mjs`;
   const VITE_CACHE_PATH = `${__dirname}/node_modules/@medusajs/admin-bundler/node_modules/.vite`;
 
-  console.log("Starting admin patching...");
+  console.log("=== ADMIN PATCHING DEBUG ===");
+  console.log("Working directory:", __dirname);
+  console.log("APP_MJS_PATH:", APP_MJS_PATH);
+  console.log("VITE_CACHE_PATH:", VITE_CACHE_PATH);
 
   // Check if dashboard dist folder exists
   const dashboardDistPath = `${__dirname}/node_modules/@medusajs/dashboard/dist`;
+  console.log("Dashboard dist path:", dashboardDistPath);
+  console.log("Dashboard dist exists:", fs.existsSync(dashboardDistPath));
+  
   if (!fs.existsSync(dashboardDistPath)) {
     console.log("Dashboard dist folder not found, skipping admin patching.");
     process.exit(0);
   }
+
+  // List all files in the dist directory
+  const distFiles = fs.readdirSync(dashboardDistPath);
+  console.log("Files in dashboard dist:", distFiles);
 
   console.log("Dashboard dist folder found!");
 
