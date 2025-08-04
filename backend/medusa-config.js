@@ -177,5 +177,13 @@ const medusaConfig = {
   ]
 };
 
-console.log(JSON.stringify(medusaConfig, null, 2));
+console.log('=== MEDUSA CONFIG DEBUG ===');
+console.log('BACKEND_URL:', BACKEND_URL);
+console.log('ADMIN_CORS:', ADMIN_CORS);
+console.log('AUTH_CORS:', AUTH_CORS);
+console.log('SHOULD_DISABLE_ADMIN:', SHOULD_DISABLE_ADMIN);
+console.log('RAILWAY_PUBLIC_DOMAIN:', process.env.RAILWAY_PUBLIC_DOMAIN);
+console.log('RAILWAY_PUBLIC_DOMAIN_VALUE:', process.env.RAILWAY_PUBLIC_DOMAIN_VALUE);
+console.log('=== END CONFIG DEBUG ===');
+
 export default defineConfig(medusaConfig);

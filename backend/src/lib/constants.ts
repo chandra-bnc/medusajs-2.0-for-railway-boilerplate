@@ -12,7 +12,10 @@ export const IS_DEV = process.env.NODE_ENV === 'development'
 /**
  * Public URL for the backend
  */
-export const BACKEND_URL = process.env.BACKEND_PUBLIC_URL ?? process.env.RAILWAY_PUBLIC_DOMAIN_VALUE ?? 'http://localhost:9000'
+export const BACKEND_URL = process.env.BACKEND_PUBLIC_URL 
+  ?? (process.env.RAILWAY_PUBLIC_DOMAIN ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}` : undefined)
+  ?? (process.env.RAILWAY_PUBLIC_DOMAIN_VALUE ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN_VALUE}` : undefined)
+  ?? 'http://localhost:9000'
 
 /**
  * Database URL for Postgres instance used by the backend
@@ -30,17 +33,20 @@ export const REDIS_URL = process.env.REDIS_URL;
 /**
  * Admin CORS origins
  */
-export const ADMIN_CORS = process.env.ADMIN_CORS;
+export const ADMIN_CORS = process.env.ADMIN_CORS 
+  ?? (BACKEND_URL !== 'http://localhost:9000' ? BACKEND_URL : 'http://localhost:7000,http://localhost:7001')
 
 /**
  * Auth CORS origins
  */
-export const AUTH_CORS = process.env.AUTH_CORS;
+export const AUTH_CORS = process.env.AUTH_CORS 
+  ?? (BACKEND_URL !== 'http://localhost:9000' ? BACKEND_URL : 'http://localhost:7000,http://localhost:7001')
 
 /**
  * Store/frontend CORS origins
  */
-export const STORE_CORS = process.env.STORE_CORS;
+export const STORE_CORS = process.env.STORE_CORS 
+  ?? (BACKEND_URL !== 'http://localhost:9000' ? BACKEND_URL : 'http://localhost:8000')
 
 /**
  * JWT Secret used for signing JWT tokens
