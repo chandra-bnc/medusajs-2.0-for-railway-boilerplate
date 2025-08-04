@@ -37,21 +37,23 @@ execSync('npm ci --omit=dev', {
   stdio: 'inherit'
 });
 
-// Copy patch-admin.js to server directory and run it
+// Copy patch-admin.js to server directory
 const patchAdminPath = path.join(process.cwd(), 'patch-admin.js');
 if (fs.existsSync(patchAdminPath)) {
-  console.log('Copying and running admin patch script...');
+  console.log('Copying admin patch script...');
   fs.copyFileSync(patchAdminPath, path.join(MEDUSA_SERVER_PATH, 'patch-admin.js'));
   
-  try {
-    execSync('node patch-admin.js', { 
-      cwd: MEDUSA_SERVER_PATH,
-      stdio: 'inherit'
-    });
-    console.log('Admin branding patch applied successfully!');
-  } catch (error) {
-    console.log('Admin branding patch failed, continuing without it:', error.message);
+  // Add postinstall script to server package.json to run the patch after dependencies are installed
+  const serverPackageJsonPath = path.join(MEDUSA_SERVER_PATH, 'package.json');
+  if (fs.existsSync(serverPackageJsonPath)) {
+    const serverPackageJson = JSON.parse(fs.readFileSync(serverPackageJsonPath, 'utf8'));
+    if (!serverPackageJson.scripts) {
+      serverPackageJson.scripts = {};
+    }
+    serverPackageJson.scripts.postinstall = 'node patch-admin.js';
+    fs.writeFileSync(serverPackageJsonPath, JSON.stringify(serverPackageJson, null, 2));
+    console.log('Added postinstall script to server package.json');
   }
 } else {
-  console.log('patch-admin.js not found, skipping admin patching');
+  console.log('patch-admin.js not found, skipping admin patching setup');
 }
