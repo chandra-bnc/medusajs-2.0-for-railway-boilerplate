@@ -1,4 +1,5 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk"
+import GlobalAdminStyles from "./components/global-layout"
 
 const customRouteConfig = defineRouteConfig({
   routes: [
@@ -26,7 +27,33 @@ const customRouteConfig = defineRouteConfig({
       path: "/approvals",
       page: () => import("./routes/approvals/page"),
     },
-  ]
+  ],
+  widgets: [
+    {
+      zone: "order.list.before",
+      widget: {
+        Component: GlobalAdminStyles,
+      },
+    },
+    {
+      zone: "product.list.before", 
+      widget: {
+        Component: GlobalAdminStyles,
+      },
+    },
+    {
+      zone: "customer.list.before",
+      widget: {
+        Component: GlobalAdminStyles,
+      },
+    },
+    {
+      zone: "login.before",
+      widget: {
+        Component: GlobalAdminStyles,
+      },
+    },
+  ],
 })
 
 export default customRouteConfig
