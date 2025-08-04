@@ -6,6 +6,7 @@ const customRouteConfig = defineRouteConfig({
     {
       path: "/companies",
       page: () => import("./routes/companies/page"),
+      label: "Companies",
     },
     {
       path: "/companies/:companyId",
@@ -14,6 +15,7 @@ const customRouteConfig = defineRouteConfig({
     {
       path: "/quotes",
       page: () => import("./routes/quotes/page"),
+      label: "Quotes",
     },
     {
       path: "/quotes/:quoteId",
@@ -26,6 +28,12 @@ const customRouteConfig = defineRouteConfig({
     {
       path: "/approvals",
       page: () => import("./routes/approvals/page"),
+      label: "Approvals",
+    },
+    {
+      path: "/boxncase-ai",
+      page: () => import("./routes/boxncase-ai/page"),
+      label: "BoxNCaseAI Marketer (Request Access)",
     },
   ],
   widgets: [
