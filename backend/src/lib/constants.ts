@@ -46,7 +46,9 @@ export const AUTH_CORS = process.env.AUTH_CORS
  * Store/frontend CORS origins
  */
 export const STORE_CORS = process.env.STORE_CORS 
-  ?? (BACKEND_URL !== 'http://localhost:9000' ? BACKEND_URL : 'http://localhost:8000')
+  ?? (BACKEND_URL !== 'http://localhost:9000' ? 
+      'https://medusajs-20-for-railway-boilerplate-storefront-production.up.railway.app,http://localhost:8000' : 
+      'http://localhost:8000')
 
 /**
  * JWT Secret used for signing JWT tokens
