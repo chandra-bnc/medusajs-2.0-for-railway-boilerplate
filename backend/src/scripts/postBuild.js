@@ -30,8 +30,6 @@ if (fs.existsSync(envPath)) {
   );
 }
 
-// Note: Admin branding is now handled through admin widgets instead of patching
-
 // Install dependencies
 console.log('Installing dependencies in .medusa/server...');
 execSync('npm ci --omit=dev', { 
@@ -39,4 +37,21 @@ execSync('npm ci --omit=dev', {
   stdio: 'inherit'
 });
 
-console.log('Admin branding is now handled through admin widgets - no patching needed.');
+// Copy patch-admin.js to server directory and run it
+const patchAdminPath = path.join(process.cwd(), 'patch-admin.js');
+if (fs.existsSync(patchAdminPath)) {
+  console.log('Copying and running admin patch script...');
+  fs.copyFileSync(patchAdminPath, path.join(MEDUSA_SERVER_PATH, 'patch-admin.js'));
+  
+  try {
+    execSync('node patch-admin.js', { 
+      cwd: MEDUSA_SERVER_PATH,
+      stdio: 'inherit'
+    });
+    console.log('Admin branding patch applied successfully!');
+  } catch (error) {
+    console.log('Admin branding patch failed, continuing without it:', error.message);
+  }
+} else {
+  console.log('patch-admin.js not found, skipping admin patching');
+}

@@ -20,7 +20,8 @@
     "start": "init-backend && cd .medusa/server && medusa start --verbose",
     "dev": "medusa develop",
     "email:dev": "email dev --dir=./src/modules/email-notifications/templates --port=3002",
-    "patch-admin": "node patch-admin.js"
+    "patch-admin": "node patch-admin.js",
+    "postinstall": "node patch-admin.js"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "latest",

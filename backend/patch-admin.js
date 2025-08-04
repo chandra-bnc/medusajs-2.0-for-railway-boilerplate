@@ -5,6 +5,10 @@ const fs = require("fs");
 const findFilePathByNamePattern = (filePattern, fileExtension) => {
   const dirPath = `${__dirname}/node_modules/@medusajs/dashboard/dist`;
 
+  if (!fs.existsSync(dirPath)) {
+    return null;
+  }
+
   // Read the list of files in the directory
   const files = fs.readdirSync(dirPath);
 
@@ -14,17 +18,19 @@ const findFilePathByNamePattern = (filePattern, fileExtension) => {
   );
 
   if (!fileName) {
-    throw new Error(`No file found matching pattern: ${filePattern}`);
+    return null;
   }
 
-  const filePath = `${dirPath}/${fileName}`;
-
-  return filePath;
+  return `${dirPath}/${fileName}`;
 };
 
 function findChunkFileByContainingText(text) {
   try {
     const dirPath = `${__dirname}/node_modules/@medusajs/dashboard/dist`;
+
+    if (!fs.existsSync(dirPath)) {
+      return null;
+    }
 
     // Read the list of files in the directory
     const files = fs.readdirSync(dirPath);
@@ -39,7 +45,7 @@ function findChunkFileByContainingText(text) {
       const filePath = `${dirPath}/${fileName}`;
       const content = fs.readFileSync(filePath, "utf8");
 
-      // If the file contains the target string, print its name
+      // If the file contains the target string, return the file path
       if (content.includes(text)) {
         console.log(`Found '${text}' in file: ${filePath}`);
         return filePath;
@@ -48,6 +54,7 @@ function findChunkFileByContainingText(text) {
   } catch (error) {
     console.error("An error occurred:", error);
   }
+  return null;
 }
 
 const readFileAsLines = (filePath) => {
@@ -94,25 +101,15 @@ try {
   const VITE_CACHE_PATH = `${__dirname}/node_modules/@medusajs/admin-bundler/node_modules/.vite`;
 
   console.log("Starting admin patching...");
-  console.log("__dirname:", __dirname);
-  console.log("Looking for dashboard at:", `${__dirname}/node_modules/@medusajs/dashboard/dist`);
 
   // Check if dashboard dist folder exists
   const dashboardDistPath = `${__dirname}/node_modules/@medusajs/dashboard/dist`;
   if (!fs.existsSync(dashboardDistPath)) {
     console.log("Dashboard dist folder not found, skipping admin patching.");
-    console.log("Checking if dashboard package exists at:", `${__dirname}/node_modules/@medusajs/dashboard`);
-    console.log("Dashboard package exists:", fs.existsSync(`${__dirname}/node_modules/@medusajs/dashboard`));
-    if (fs.existsSync(`${__dirname}/node_modules/@medusajs/dashboard`)) {
-      const dashboardFiles = fs.readdirSync(`${__dirname}/node_modules/@medusajs/dashboard`);
-      console.log("Dashboard package contents:", dashboardFiles);
-    }
     process.exit(0);
   }
-  
+
   console.log("Dashboard dist folder found!");
-  const distFiles = fs.readdirSync(dashboardDistPath);
-  console.log("Dashboard dist files:", distFiles.slice(0, 10));
 
   // 1) Welcome to Medusa -> Welcome to myBoxNCase
   const CHUNK_1 = findChunkFileByContainingText("Welcome to Medusa");
@@ -122,14 +119,20 @@ try {
       lines[i] = lines[i].replace(/Welcome to Medusa/g, "Welcome to myBoxNCase");
     }
     writeFile(lines, CHUNK_1);
+  } else {
+    console.log("Could not find chunk file containing 'Welcome to Medusa'");
   }
 
   // 2) hide avatar logo on login page
   try {
     const LOGIN_PATH = findFilePathByNamePattern("login-", ".mjs");
-    let lines = readFileAsLines(LOGIN_PATH);
-    lines = removeOccurrence(lines, "AvatarBox");
-    writeFile(lines, LOGIN_PATH);
+    if (LOGIN_PATH) {
+      let lines = readFileAsLines(LOGIN_PATH);
+      lines = removeOccurrence(lines, "AvatarBox");
+      writeFile(lines, LOGIN_PATH);
+    } else {
+      console.log("Login file not found, skipping avatar logo removal on login page");
+    }
   } catch (error) {
     console.log("Login file not found, skipping avatar logo removal on login page");
   }
@@ -137,9 +140,13 @@ try {
   // 3) hide avatar logo on reset password page
   try {
     const RESET_PASSWORD_PATH = findFilePathByNamePattern("reset-password-", ".mjs");
-    let lines = readFileAsLines(RESET_PASSWORD_PATH);
-    lines = removeOccurrence(lines, "LogoBox");
-    writeFile(lines, RESET_PASSWORD_PATH);
+    if (RESET_PASSWORD_PATH) {
+      let lines = readFileAsLines(RESET_PASSWORD_PATH);
+      lines = removeOccurrence(lines, "LogoBox");
+      writeFile(lines, RESET_PASSWORD_PATH);
+    } else {
+      console.log("Reset password file not found, skipping logo removal on reset password page");
+    }
   } catch (error) {
     console.log("Reset password file not found, skipping logo removal on reset password page");
   }
@@ -147,23 +154,37 @@ try {
   // 4) hide documentation and changelog links from menu
   if (fs.existsSync(APP_MJS_PATH)) {
     let lines = readFileAsLines(APP_MJS_PATH);
+    let modified = false;
+    
     lines.forEach((line, index) => {
-      if (line.includes("app.menus.user.documentation")) {
-        lines[index - 3] = "";
-        lines[index - 2] = "";
-        lines[index - 1] = "";
-        lines[index] = "";
-        lines[index + 1] = "";
+      // Look for documentation menu items
+      if (line.includes("app.menus.user.documentation") || line.includes('"Documentation"')) {
+        // Try to remove surrounding menu item structure
+        for (let i = Math.max(0, index - 5); i <= Math.min(lines.length - 1, index + 5); i++) {
+          if (lines[i].includes("documentation") || lines[i].includes("Documentation")) {
+            lines[i] = "";
+            modified = true;
+          }
+        }
       }
 
-      if (line.includes("app.menus.user.changelog")) {
-        lines[index - 2] = "";
-        lines[index - 1] = "";
-        lines[index] = "";
-        lines[index + 1] = "";
+      // Look for changelog menu items
+      if (line.includes("app.menus.user.changelog") || line.includes('"Changelog"')) {
+        // Try to remove surrounding menu item structure
+        for (let i = Math.max(0, index - 5); i <= Math.min(lines.length - 1, index + 5); i++) {
+          if (lines[i].includes("changelog") || lines[i].includes("Changelog")) {
+            lines[i] = "";
+            modified = true;
+          }
+        }
       }
     });
-    writeFile(lines, APP_MJS_PATH);
+
+    if (modified) {
+      writeFile(lines, APP_MJS_PATH);
+    } else {
+      console.log("No documentation or changelog menu items found to remove");
+    }
   } else {
     console.log("App.mjs not found, skipping menu modifications.");
   }
