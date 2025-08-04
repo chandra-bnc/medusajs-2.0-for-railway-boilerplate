@@ -58,7 +58,6 @@ export const GlobalAdminStyles = () => {
       docLinks.forEach(link => {
         const element = link as HTMLElement
         element.style.display = 'none'
-        element.remove()
         
         // Hide parent containers
         let parent = element.parentElement
@@ -67,80 +66,28 @@ export const GlobalAdminStyles = () => {
               parent.tagName.toLowerCase() === 'li' ||
               parent.tagName.toLowerCase() === 'button') {
             parent.style.display = 'none'
-            parent.remove()
             break
           }
           parent = parent.parentElement
         }
       })
 
-      // More aggressive text-based search
-      const allElements = Array.from(document.querySelectorAll('*'))
+      // Find and hide by text content - more conservative approach
+      const allElements = Array.from(document.querySelectorAll('a, button, [role="menuitem"], li'))
       allElements.forEach(element => {
         const text = element.textContent?.trim().toLowerCase() || ''
-        const innerHTML = element.innerHTML?.toLowerCase() || ''
         
-        // Check for documentation/changelog in text or HTML
-        if (text.includes('documentation') || text.includes('changelog') ||
-            innerHTML.includes('documentation') || innerHTML.includes('changelog') ||
-            text === 'documentation' || text === 'changelog') {
-          
+        // Only target exact matches to avoid breaking other elements
+        if (text === 'documentation' || text === 'changelog') {
           const htmlElement = element as HTMLElement
           htmlElement.style.display = 'none'
           
-          // Try to remove parent menu structures
-          let parent = element.parentElement
-          let depth = 0
-          while (parent && parent !== document.body && depth < 10) {
-            const parentText = parent.textContent?.trim().toLowerCase() || ''
-            if (parentText === 'documentation' || parentText === 'changelog' ||
-                parent.getAttribute('role') === 'menuitem' ||
-                parent.tagName.toLowerCase() === 'li' ||
-                parent.classList.contains('menu-item')) {
-              parent.style.display = 'none'
-              try {
-                parent.remove()
-              } catch (e) {
-                // Ignore removal errors
-              }
-              break
-            }
-            parent = parent.parentElement
-            depth++
-          }
-          
-          // Try to remove the element itself
-          try {
-            htmlElement.remove()
-          } catch (e) {
-            // Ignore removal errors
+          // Hide parent menu item if it exists
+          const menuItem = element.closest('[role="menuitem"]') || element.closest('li')
+          if (menuItem && menuItem !== element) {
+            ;(menuItem as HTMLElement).style.display = 'none'
           }
         }
-      })
-
-      // Additional targeted removal for common menu patterns
-      const menuSelectors = [
-        '[data-testid="documentation"]',
-        '[data-testid="changelog"]', 
-        '[aria-label*="documentation" i]',
-        '[aria-label*="changelog" i]',
-        'a[title*="documentation" i]',
-        'a[title*="changelog" i]',
-        'button[title*="documentation" i]',
-        'button[title*="changelog" i]'
-      ]
-      
-      menuSelectors.forEach(selector => {
-        const elements = document.querySelectorAll(selector)
-        elements.forEach(el => {
-          const htmlEl = el as HTMLElement
-          htmlEl.style.display = 'none'
-          try {
-            htmlEl.remove()
-          } catch (e) {
-            // Ignore removal errors
-          }
-        })
       })
 
       // Replace "Welcome to Medusa" text
