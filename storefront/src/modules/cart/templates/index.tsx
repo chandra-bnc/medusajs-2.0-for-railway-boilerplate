@@ -35,16 +35,16 @@ const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
                   You have {totalItems} items in your cart
                 </Heading>
               </div>
-              <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-2">
-                <div className="flex flex-col gap-y-2">
+              <div className="flex flex-col small:grid small:grid-cols-[1fr_360px] gap-4 small:gap-6">
+                <div className="order-2 small:order-1 flex flex-col gap-y-2">
                   {!customer && <SignInPrompt />}
                   {cart?.approvals && cart.approvals.length > 0 && (
                     <ApprovalStatusBanner cart={cart} />
                   )}
                   <ItemsTemplate cart={cart} />
                 </div>
-                <div className="relative">
-                  <div className="flex flex-col gap-y-8 sticky top-20">
+                <div className="order-1 small:order-2 relative">
+                  <div className="flex flex-col gap-y-8 small:sticky small:top-20">
                     {cart && cart.region && (
                       <Summary
                         customer={customer}

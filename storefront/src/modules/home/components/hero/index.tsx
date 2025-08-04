@@ -7,28 +7,29 @@ import Image from "next/image"
 
 const Hero = () => {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-neutral-100">
+    <div className="h-[60vh] small:h-[75vh] w-full border-b border-ui-border-base relative bg-neutral-100">
       <Image
         src="/hero-image.jpg"
         alt="Hero background"
         layout="fill"
         quality={100}
         priority
+        className="object-cover"
       />
-      <div className="absolute inset-0 z-1 flex flex-col justify-center items-center text-center small:p-32 gap-6">
-        <span>
-          <p className="text-neutral-600 text-xs uppercase">
+      <div className="absolute inset-0 z-1 flex flex-col justify-center items-center text-center p-6 small:p-16 medium:p-32 gap-4 small:gap-6">
+        <span className="max-w-3xl">
+          <p className="text-neutral-600 text-xs small:text-sm uppercase">
             Be light on your feet
           </p>
 
           <Heading
             level="h1"
-            className="text-6xl leading-10 text-ui-fg-base font-normal mt-10 mb-5"
+            className="text-3xl small:text-4xl medium:text-6xl leading-tight small:leading-10 text-ui-fg-base font-normal mt-4 small:mt-10 mb-3 small:mb-5"
           >
             Portable Bestsellers
           </Heading>
 
-          <p className="leading-10 text-ui-fg-subtle font-normal text-lg">
+          <p className="leading-6 small:leading-10 text-ui-fg-subtle font-normal text-sm small:text-lg">
             See our widest selection of electronics
           </p>
         </span>
@@ -36,9 +37,10 @@ const Hero = () => {
           href="https://github.com/medusajs/b2b-starter-medusa"
           target="_blank"
         >
-          <Button variant="secondary" className="rounded-2xl">
-            <Github />
-            Github Repository
+          <Button variant="secondary" className="rounded-2xl text-sm small:text-base">
+            <Github className="w-4 h-4 small:w-5 small:h-5" />
+            <span className="hidden xsmall:inline">Github Repository</span>
+            <span className="xsmall:hidden">GitHub</span>
           </Button>
         </a>
       </div>

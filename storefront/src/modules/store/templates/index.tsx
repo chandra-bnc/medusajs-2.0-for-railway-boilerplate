@@ -27,9 +27,11 @@ const StoreTemplate = ({
         data-testid="category-container"
       >
         <StoreBreadcrumb />
-        <div className="flex flex-col small:flex-row small:items-start gap-3">
-          <RefinementList sortBy={sort} categories={categories} />
-          <div className="w-full">
+        <div className="flex flex-col small:flex-row small:items-start gap-3 small:gap-6">
+          <div className="w-full small:w-64 small:flex-shrink-0">
+            <RefinementList sortBy={sort} categories={categories} />
+          </div>
+          <div className="w-full small:flex-1">
             <Suspense fallback={<SkeletonProductGrid />}>
               <PaginatedProducts
                 sortBy={sort}

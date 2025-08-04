@@ -51,7 +51,7 @@
 
 @layer components {
   .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-6;
+    @apply max-w-[1440px] w-full mx-auto px-4 small:px-6;
   }
 
   .contrast-btn {
@@ -108,5 +108,28 @@
 
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
+  }
+
+  /* Mobile-friendly touch targets */
+  @media (max-width: 1024px) {
+    button, 
+    a[role="button"],
+    input[type="button"],
+    input[type="submit"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Improve touch targets for small interactive elements */
+    .small-touch-target {
+      @apply p-2 min-h-[44px] min-w-[44px] flex items-center justify-center;
+    }
+  }
+
+  /* Improved mobile scrolling */
+  @media (max-width: 1024px) {
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }

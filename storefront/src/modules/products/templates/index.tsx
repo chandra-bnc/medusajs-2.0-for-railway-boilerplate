@@ -26,13 +26,15 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   }
 
   return (
-    <div className="flex flex-col gap-y-2 my-2">
+    <div className="flex flex-col gap-y-4 small:gap-y-8 my-2 small:my-6">
       <div
-        className="content-container grid grid-cols-1 md:grid-cols-2 gap-2 w-full h-fit"
+        className="content-container flex flex-col small:grid small:grid-cols-2 gap-4 small:gap-8 w-full"
         data-testid="product-container"
       >
-        <ImageGallery product={product} />
-        <div className="flex flex-col bg-neutral-100 w-full gap-6 items-start justify-center small:p-20 p-6 h-full">
+        <div className="order-1">
+          <ImageGallery product={product} />
+        </div>
+        <div className="order-2 flex flex-col bg-neutral-100 w-full gap-4 small:gap-6 items-start justify-center p-4 small:p-8 medium:p-20">
           <ProductInfo product={product} />
           <Suspense
             fallback={<ProductActions product={product} region={region} />}
@@ -42,11 +44,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <ProductFacts product={product} />
         </div>
       </div>
-      <div className="content-container">
+      <div className="content-container px-4 small:px-0">
         <ProductTabs product={product} />
       </div>
       <div
-        className="content-container"
+        className="content-container px-4 small:px-0"
         data-testid="related-products-container"
       >
         <Suspense fallback={<SkeletonRelatedProducts />}>

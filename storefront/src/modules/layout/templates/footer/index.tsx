@@ -18,8 +18,8 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base w-full">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
-          <div>
+        <div className="flex flex-col gap-y-8 small:gap-y-6 small:flex-row items-start justify-between py-12 small:py-20 medium:py-40">
+          <div className="w-full small:w-auto">
             <LocalizedClientLink
               href="/"
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
@@ -27,7 +27,7 @@ export default async function Footer() {
               myBoxNCase Store
             </LocalizedClientLink>
           </div>
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
+          <div className="text-small-regular gap-6 small:gap-10 medium:gap-x-16 grid grid-cols-1 xsmall:grid-cols-2 small:grid-cols-3 w-full small:w-auto">
             {product_categories && product_categories?.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">
@@ -149,8 +149,8 @@ export default async function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <Text className="txt-compact-small">
+        <div className="flex flex-col small:flex-row w-full mb-8 small:mb-16 gap-4 small:gap-0 small:justify-between text-ui-fg-muted items-center small:items-start">
+          <Text className="txt-compact-small text-center small:text-left">
             © {new Date().getFullYear()} myBoxNCase Store. All rights reserved.
           </Text>
           <BoxNCaseCTA />

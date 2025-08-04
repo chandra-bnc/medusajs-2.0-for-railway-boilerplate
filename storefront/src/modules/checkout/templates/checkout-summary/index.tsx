@@ -11,7 +11,7 @@ const CheckoutSummary = async ({ cart }: { cart: B2BCart }) => {
   const customer = await retrieveCustomer()
 
   return (
-    <Container className="sticky top-2 h-fit w-full flex flex-col small:mt-10">
+    <Container className="small:sticky small:top-2 h-fit w-full flex flex-col small:mt-10">
       <ItemsPreviewTemplate
         items={cart?.items}
         currencyCode={cart.currency_code}
