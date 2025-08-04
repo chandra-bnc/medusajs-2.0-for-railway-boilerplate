@@ -154,37 +154,23 @@ try {
   // 4) hide documentation and changelog links from menu
   if (fs.existsSync(APP_MJS_PATH)) {
     let lines = readFileAsLines(APP_MJS_PATH);
-    let modified = false;
-    
     lines.forEach((line, index) => {
-      // Look for documentation menu items
-      if (line.includes("app.menus.user.documentation") || line.includes('"Documentation"')) {
-        // Try to remove surrounding menu item structure
-        for (let i = Math.max(0, index - 5); i <= Math.min(lines.length - 1, index + 5); i++) {
-          if (lines[i].includes("documentation") || lines[i].includes("Documentation")) {
-            lines[i] = "";
-            modified = true;
-          }
-        }
+      if (line.includes("app.menus.user.documentation")) {
+        lines[index - 3] = "";
+        lines[index - 2] = "";
+        lines[index - 1] = "";
+        lines[index] = "";
+        lines[index + 1] = "";
       }
 
-      // Look for changelog menu items
-      if (line.includes("app.menus.user.changelog") || line.includes('"Changelog"')) {
-        // Try to remove surrounding menu item structure
-        for (let i = Math.max(0, index - 5); i <= Math.min(lines.length - 1, index + 5); i++) {
-          if (lines[i].includes("changelog") || lines[i].includes("Changelog")) {
-            lines[i] = "";
-            modified = true;
-          }
-        }
+      if (line.includes("app.menus.user.changelog")) {
+        lines[index - 2] = "";
+        lines[index - 1] = "";
+        lines[index] = "";
+        lines[index + 1] = "";
       }
     });
-
-    if (modified) {
-      writeFile(lines, APP_MJS_PATH);
-    } else {
-      console.log("No documentation or changelog menu items found to remove");
-    }
+    writeFile(lines, APP_MJS_PATH);
   } else {
     console.log("App.mjs not found, skipping menu modifications.");
   }
