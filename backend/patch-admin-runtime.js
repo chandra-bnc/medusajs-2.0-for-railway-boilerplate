@@ -65,53 +65,121 @@ const findChunkFileByContainingText = (text) => {
 };
 
 try {
-  // 1) Welcome to Medusa -> Welcome to myBoxNCase
-  console.log("🔍 Looking for 'Welcome to Medusa' text...");
-  const CHUNK_1 = findChunkFileByContainingText("Welcome to Medusa");
-  if (CHUNK_1) {
-    let lines = readFileAsLines(CHUNK_1);
-    for (let i = 0; i < lines.length; i++) {
-      lines[i] = lines[i].replace(/Welcome to Medusa/g, "Welcome to myBoxNCase");
+  // 1) Welcome to Medusa -> Welcome to myBoxNCase (search ALL files)
+  console.log("🔍 Looking for 'Welcome to Medusa' text in ALL files...");
+  const allFiles = fs.readdirSync(dashboardDistPath);
+  const jsFiles = allFiles.filter(file => file.endsWith('.mjs') || file.endsWith('.js'));
+  
+  let foundWelcomeFiles = [];
+  
+  jsFiles.forEach(fileName => {
+    const filePath = `${dashboardDistPath}/${fileName}`;
+    try {
+      const content = fs.readFileSync(filePath, "utf8");
+      if (content.includes("Welcome to Medusa")) {
+        console.log(`✓ Found 'Welcome to Medusa' in: ${fileName}`);
+        foundWelcomeFiles.push(filePath);
+        
+        // Replace the text
+        const updatedContent = content.replace(/Welcome to Medusa/g, "Welcome to myBoxNCase");
+        fs.writeFileSync(filePath, updatedContent, "utf8");
+        console.log(`✓ Updated 'Welcome to Medusa' in: ${fileName}`);
+      }
+    } catch (error) {
+      console.log(`⚠️ Could not process ${fileName}:`, error.message);
     }
-    writeFile(lines, CHUNK_1);
-  } else {
-    console.log("❌ Could not find chunk file containing 'Welcome to Medusa'");
+  });
+  
+  console.log(`📊 Searched ${jsFiles.length} JavaScript files, found Welcome text in ${foundWelcomeFiles.length} files`);
+  
+  if (foundWelcomeFiles.length === 0) {
+    console.log("❌ No files found containing 'Welcome to Medusa' - checking CSS files too...");
+    
+    // Also check CSS files
+    const cssFiles = allFiles.filter(file => file.endsWith('.css'));
+    cssFiles.forEach(fileName => {
+      const filePath = `${dashboardDistPath}/${fileName}`;
+      try {
+        const content = fs.readFileSync(filePath, "utf8");
+        if (content.includes("Welcome to Medusa")) {
+          console.log(`✓ Found 'Welcome to Medusa' in CSS: ${fileName}`);
+          const updatedContent = content.replace(/Welcome to Medusa/g, "Welcome to myBoxNCase");
+          fs.writeFileSync(filePath, updatedContent, "utf8");
+          console.log(`✓ Updated 'Welcome to Medusa' in CSS: ${fileName}`);
+        }
+      } catch (error) {
+        console.log(`⚠️ Could not process CSS ${fileName}:`, error.message);
+      }
+    });
   }
 
-  // 2) Hide documentation and changelog links from menu  
-  console.log("🔍 Looking for documentation/changelog menu items...");
+  // 2) Hide documentation and changelog links from menu (search ALL files)
+  console.log("🔍 Looking for documentation/changelog menu items in ALL files...");
+  
+  let foundMenuFiles = [];
+  
+  jsFiles.forEach(fileName => {
+    const filePath = `${dashboardDistPath}/${fileName}`;
+    try {
+      let content = fs.readFileSync(filePath, "utf8");
+      let originalContent = content;
+      let modified = false;
+      
+      // Remove various documentation/changelog patterns
+      if (content.includes("Documentation") || content.includes("Changelog") || 
+          content.includes("docs.medusajs.com") || content.includes("github.com/medusajs/medusa/releases")) {
+        
+        console.log(`✓ Found documentation/changelog content in: ${fileName}`);
+        foundMenuFiles.push(fileName);
+        
+        // Replace common patterns
+        content = content.replace(/Documentation/g, "");
+        content = content.replace(/Changelog/g, "");
+        content = content.replace(/docs\.medusajs\.com[^"']*/g, "");
+        content = content.replace(/github\.com\/medusajs\/medusa\/releases[^"']*/g, "");
+        content = content.replace(/app\.menus\.user\.documentation/g, "");
+        content = content.replace(/app\.menus\.user\.changelog/g, "");
+        
+        if (content !== originalContent) {
+          fs.writeFileSync(filePath, content, "utf8");
+          console.log(`✓ Updated documentation/changelog in: ${fileName}`);
+          modified = true;
+        }
+      }
+    } catch (error) {
+      console.log(`⚠️ Could not process ${fileName} for menu removal:`, error.message);
+    }
+  });
+  
+  console.log(`📊 Found documentation/changelog references in ${foundMenuFiles.length} files`);
+  
+  // Also specifically handle app.mjs with line-based approach
   if (fs.existsSync(APP_MJS_PATH)) {
+    console.log("🔍 Also applying line-based removal to app.mjs...");
     let lines = readFileAsLines(APP_MJS_PATH);
     let modified = false;
     
     lines.forEach((line, index) => {
       if (line.includes("app.menus.user.documentation")) {
-        console.log("✓ Found documentation menu item, removing...");
-        lines[index - 3] = "";
-        lines[index - 2] = "";
-        lines[index - 1] = "";
-        lines[index] = "";
-        lines[index + 1] = "";
+        console.log("✓ Found documentation menu item in app.mjs, removing...");
+        for (let i = Math.max(0, index - 3); i <= Math.min(lines.length - 1, index + 1); i++) {
+          lines[i] = "";
+        }
         modified = true;
       }
 
       if (line.includes("app.menus.user.changelog")) {
-        console.log("✓ Found changelog menu item, removing...");
-        lines[index - 2] = "";
-        lines[index - 1] = "";
-        lines[index] = "";
-        lines[index + 1] = "";
+        console.log("✓ Found changelog menu item in app.mjs, removing...");
+        for (let i = Math.max(0, index - 2); i <= Math.min(lines.length - 1, index + 1); i++) {
+          lines[i] = "";
+        }
         modified = true;
       }
     });
     
     if (modified) {
       writeFile(lines, APP_MJS_PATH);
-    } else {
-      console.log("ℹ️ No documentation or changelog menu items found to remove");
     }
-  } else {
-    console.log("❌ App.mjs not found");
   }
 
   console.log("✅ RUNTIME ADMIN PATCH COMPLETED");
