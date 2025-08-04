@@ -154,25 +154,76 @@ try {
   // 4) hide documentation and changelog links from menu
   if (fs.existsSync(APP_MJS_PATH)) {
     let lines = readFileAsLines(APP_MJS_PATH);
+    let modified = false;
+    
     lines.forEach((line, index) => {
-      if (line.includes("app.menus.user.documentation")) {
-        lines[index - 3] = "";
-        lines[index - 2] = "";
-        lines[index - 1] = "";
-        lines[index] = "";
-        lines[index + 1] = "";
+      // Target documentation menu items
+      if (line.includes("app.menus.user.documentation") || 
+          line.includes('"Documentation"') ||
+          line.includes("'Documentation'") ||
+          line.includes("documentation")) {
+        for (let i = Math.max(0, index - 5); i <= Math.min(lines.length - 1, index + 5); i++) {
+          lines[i] = "";
+        }
+        modified = true;
       }
 
-      if (line.includes("app.menus.user.changelog")) {
-        lines[index - 2] = "";
-        lines[index - 1] = "";
-        lines[index] = "";
-        lines[index + 1] = "";
+      // Target changelog menu items  
+      if (line.includes("app.menus.user.changelog") ||
+          line.includes('"Changelog"') ||
+          line.includes("'Changelog'") ||
+          line.includes("changelog")) {
+        for (let i = Math.max(0, index - 5); i <= Math.min(lines.length - 1, index + 5); i++) {
+          lines[i] = "";
+        }
+        modified = true;
       }
     });
-    writeFile(lines, APP_MJS_PATH);
+    
+    if (modified) {
+      writeFile(lines, APP_MJS_PATH);
+    } else {
+      console.log("No documentation or changelog menu items found in app.mjs");
+    }
   } else {
     console.log("App.mjs not found, skipping menu modifications.");
+  }
+
+  // 5) Also patch any chunk files that might contain menu definitions
+  try {
+    const dirPath = `${__dirname}/node_modules/@medusajs/dashboard/dist`;
+    if (fs.existsSync(dirPath)) {
+      const files = fs.readdirSync(dirPath);
+      const chunkFiles = files.filter(file => 
+        (file.startsWith("chunk-") || file.startsWith("app-")) && 
+        (file.endsWith(".mjs") || file.endsWith(".js"))
+      );
+      
+      chunkFiles.forEach(fileName => {
+        const filePath = `${dirPath}/${fileName}`;
+        try {
+          let content = fs.readFileSync(filePath, "utf8");
+          let originalContent = content;
+          
+          // Remove documentation and changelog patterns
+          content = content.replace(/Documentation.*?href.*?docs\.medusajs\.com.*?}/gi, '');
+          content = content.replace(/Changelog.*?href.*?github\.com\/medusajs\/medusa\/releases.*?}/gi, '');
+          content = content.replace(/"Documentation"/g, '""');
+          content = content.replace(/"Changelog"/g, '""');
+          content = content.replace(/app\.menus\.user\.documentation/g, '');
+          content = content.replace(/app\.menus\.user\.changelog/g, '');
+          
+          if (content !== originalContent) {
+            fs.writeFileSync(filePath, content, "utf8");
+            console.log(`Patched menu items in ${fileName}`);
+          }
+        } catch (error) {
+          console.log(`Could not patch ${fileName}:`, error.message);
+        }
+      });
+    }
+  } catch (error) {
+    console.log("Error patching chunk files:", error.message);
   }
 
   // Reset Vite cache

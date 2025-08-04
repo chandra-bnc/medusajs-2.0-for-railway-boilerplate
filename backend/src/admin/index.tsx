@@ -36,6 +36,13 @@ const customRouteConfig = defineRouteConfig({
       label: "BoxNCaseAI Marketer (Request Access)",
     },
   ],
+  links: [
+    {
+      label: "BoxNCaseAI Marketer (Request Access)",
+      path: "/boxncase-ai",
+      icon: () => null,
+    },
+  ],
   widgets: [
     {
       zone: "order.list.before",

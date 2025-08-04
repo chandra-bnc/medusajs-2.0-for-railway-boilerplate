@@ -58,6 +58,7 @@ export const GlobalAdminStyles = () => {
       docLinks.forEach(link => {
         const element = link as HTMLElement
         element.style.display = 'none'
+        element.remove()
         
         // Hide parent containers
         let parent = element.parentElement
@@ -66,43 +67,80 @@ export const GlobalAdminStyles = () => {
               parent.tagName.toLowerCase() === 'li' ||
               parent.tagName.toLowerCase() === 'button') {
             parent.style.display = 'none'
+            parent.remove()
             break
           }
           parent = parent.parentElement
         }
       })
 
-      // Find and hide by text content
-      const walker = document.createTreeWalker(
-        document.body,
-        NodeFilter.SHOW_ELEMENT,
-        {
-          acceptNode: (node) => {
-            const element = node as Element
-            const text = element.textContent?.trim().toLowerCase()
-            if (text === 'documentation' || text === 'changelog') {
-              return NodeFilter.FILTER_ACCEPT
+      // More aggressive text-based search
+      const allElements = Array.from(document.querySelectorAll('*'))
+      allElements.forEach(element => {
+        const text = element.textContent?.trim().toLowerCase() || ''
+        const innerHTML = element.innerHTML?.toLowerCase() || ''
+        
+        // Check for documentation/changelog in text or HTML
+        if (text.includes('documentation') || text.includes('changelog') ||
+            innerHTML.includes('documentation') || innerHTML.includes('changelog') ||
+            text === 'documentation' || text === 'changelog') {
+          
+          const htmlElement = element as HTMLElement
+          htmlElement.style.display = 'none'
+          
+          // Try to remove parent menu structures
+          let parent = element.parentElement
+          let depth = 0
+          while (parent && parent !== document.body && depth < 10) {
+            const parentText = parent.textContent?.trim().toLowerCase() || ''
+            if (parentText === 'documentation' || parentText === 'changelog' ||
+                parent.getAttribute('role') === 'menuitem' ||
+                parent.tagName.toLowerCase() === 'li' ||
+                parent.classList.contains('menu-item')) {
+              parent.style.display = 'none'
+              try {
+                parent.remove()
+              } catch (e) {
+                // Ignore removal errors
+              }
+              break
             }
-            return NodeFilter.FILTER_SKIP
+            parent = parent.parentElement
+            depth++
+          }
+          
+          // Try to remove the element itself
+          try {
+            htmlElement.remove()
+          } catch (e) {
+            // Ignore removal errors
           }
         }
-      )
+      })
 
-      const elementsToHide: Element[] = []
-      let node: Node | null
-      while ((node = walker.nextNode())) {
-        elementsToHide.push(node as Element)
-      }
-
-      elementsToHide.forEach(element => {
-        const htmlElement = element as HTMLElement
-        htmlElement.style.display = 'none'
-        
-        // Also hide parent menu item if applicable
-        const menuItem = element.closest('[role="menuitem"]') || element.closest('li')
-        if (menuItem) {
-          ;(menuItem as HTMLElement).style.display = 'none'
-        }
+      // Additional targeted removal for common menu patterns
+      const menuSelectors = [
+        '[data-testid="documentation"]',
+        '[data-testid="changelog"]', 
+        '[aria-label*="documentation" i]',
+        '[aria-label*="changelog" i]',
+        'a[title*="documentation" i]',
+        'a[title*="changelog" i]',
+        'button[title*="documentation" i]',
+        'button[title*="changelog" i]'
+      ]
+      
+      menuSelectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector)
+        elements.forEach(el => {
+          const htmlEl = el as HTMLElement
+          htmlEl.style.display = 'none'
+          try {
+            htmlEl.remove()
+          } catch (e) {
+            // Ignore removal errors
+          }
+        })
       })
 
       // Replace "Welcome to Medusa" text
