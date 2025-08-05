@@ -3,7 +3,6 @@ import { HttpTypes } from "@medusajs/types"
 import { Text, clx } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
-import PreviewAddToCart from "./preview-add-to-cart"
 import PreviewPrice from "./price"
 
 export default async function ProductPreview({
@@ -65,11 +64,19 @@ export default async function ProductPreview({
               •
             </span>
             <Text className="text-neutral-600 text-[0.6rem] small:text-xs">
-              <span className="hidden xsmall:inline">{inventoryQuantity} left</span>
-              <span className="xsmall:hidden">{inventoryQuantity}</span>
+              {inventoryQuantity === 0 ? (
+                <>
+                  <span className="hidden xsmall:inline">Current Stock Unavailable. Request Custom Order</span>
+                  <span className="xsmall:hidden">Request Order</span>
+                </>
+              ) : (
+                <>
+                  <span className="hidden xsmall:inline">{inventoryQuantity} left</span>
+                  <span className="xsmall:hidden">{inventoryQuantity}</span>
+                </>
+              )}
             </Text>
           </div>
-          <PreviewAddToCart product={product} region={region} />
         </div>
       </div>
     </LocalizedClientLink>

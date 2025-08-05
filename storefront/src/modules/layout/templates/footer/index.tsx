@@ -154,27 +154,32 @@ export default async function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col small:flex-row w-full mb-8 small:mb-16 gap-4 small:gap-0 small:justify-between text-ui-fg-muted items-center small:items-start">
-          <div className="flex items-center gap-4">
-            <Text className="txt-compact-small text-center small:text-left">
-              © {new Date().getFullYear()} Monty's B2B Portal powered by BoxNCase. All rights reserved.
-            </Text>
+        <div className="flex flex-col gap-8 mb-8 small:mb-16">
+          {/* Light.svg taking 1/3 of footer */}
+          <div className="flex justify-center">
             <a
               href="https://boxncase.com"
               target="_blank"
               rel="noreferrer"
-              className="hover:opacity-80 transition-opacity"
+              className="hover:opacity-80 transition-opacity block w-full max-w-xs small:max-w-sm"
             >
               <Image
                 src="/light.svg"
                 alt="BoxNCase"
-                width={24}
-                height={24}
-                className="h-6 w-6"
+                width={400}
+                height={400}
+                className="w-full h-auto"
               />
             </a>
           </div>
-          <BoxNCaseCTA />
+          
+          {/* Copyright and CTA */}
+          <div className="flex flex-col small:flex-row w-full gap-4 small:gap-0 small:justify-between text-ui-fg-muted items-center">
+            <Text className="txt-compact-small text-center small:text-left">
+              © {new Date().getFullYear()} Monty's B2B Portal powered by BoxNCase. All rights reserved.
+            </Text>
+            <BoxNCaseCTA />
+          </div>
         </div>
       </div>
     </footer>
