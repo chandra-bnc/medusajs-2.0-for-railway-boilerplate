@@ -1,10 +1,7 @@
 "use client"
 
-import { useCart } from "@/lib/context/cart-context"
 import { HttpTypes } from "@medusajs/types"
 import Button from "@/modules/common/components/button"
-import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
-import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { Text } from "@medusajs/ui"
 import { useRouter } from "next/navigation"
@@ -28,7 +25,6 @@ export default function B2BActions({
   handleAddToCart,
   customer,
 }: B2BActionsProps) {
-  const { cart } = useCart()
   const router = useRouter()
   const [isAddingAndQuote, setIsAddingAndQuote] = useState(false)
   const [isAddingAndCheckout, setIsAddingAndCheckout] = useState(false)
@@ -42,12 +38,9 @@ export default function B2BActions({
     setIsAddingAndQuote(true)
     try {
       await handleAddToCart()
-      // Small delay to ensure cart is updated
+      // Navigate to cart page where quote button is available
       setTimeout(() => {
-        const quoteButton = document.querySelector('[data-quote-trigger]') as HTMLButtonElement
-        if (quoteButton) {
-          quoteButton.click()
-        }
+        router.push("/cart")
       }, 500)
     } finally {
       setIsAddingAndQuote(false)
@@ -111,25 +104,6 @@ export default function B2BActions({
           {!variant ? "Select Options" : "Buy Now"}
         </Button>
       </div>
-
-      {/* Hidden Quote Trigger */}
-      {customer && cart?.items && cart.items.length > 0 ? (
-        <RequestQuoteConfirmation>
-          <button
-            data-quote-trigger
-            className="hidden"
-            aria-hidden="true"
-          />
-        </RequestQuoteConfirmation>
-      ) : (
-        <RequestQuotePrompt>
-          <button
-            data-quote-trigger
-            className="hidden"
-            aria-hidden="true"
-          />
-        </RequestQuotePrompt>
-      )}
 
       <Text className="text-xs text-center text-ui-fg-muted">
         Request a quote for bulk orders or buy now with instant checkout
