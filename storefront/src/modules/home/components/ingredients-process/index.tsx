@@ -1,5 +1,4 @@
 import { Heading, Text } from "@medusajs/ui"
-import { Check, X } from "@medusajs/icons"
 
 const IngredientsProcess = () => {
   const process = [
@@ -57,7 +56,7 @@ const IngredientsProcess = () => {
             <div className="grid grid-cols-1 small:grid-cols-2 medium:grid-cols-3 gap-4">
               {noIngredients.map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <X className="w-5 h-5 text-red-500" />
+                  <span className="w-5 h-5 text-red-500 flex items-center justify-center">✕</span>
                   <Text className="text-[#2C2C2C]">{item}</Text>
                 </div>
               ))}

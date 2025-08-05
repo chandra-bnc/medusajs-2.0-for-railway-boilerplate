@@ -42,7 +42,6 @@ export default async function ProductPreview({
           />
         </div>
         <div className="flex flex-col txt-compact-medium">
-          <Text className="text-neutral-600 text-xs hidden small:block">BRAND</Text>
           <Text className="text-ui-fg-base text-xs small:text-sm" data-testid="product-title">
             {product.title}
           </Text>

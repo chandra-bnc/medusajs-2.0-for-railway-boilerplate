@@ -52,12 +52,6 @@ const FindUs = () => {
             </div>
           ))}
         </div>
-
-        <div className="mt-12 p-8 bg-white rounded-lg shadow-sm max-w-2xl mx-auto">
-          <Text className="text-center text-[#2C2C2C] font-light">
-            <span className="font-semibold">Special Items:</span> Vegan GF Walnut Chocolate Chip Cookie • Vegan GF Brownie
-          </Text>
-        </div>
       </div>
     </section>
   )

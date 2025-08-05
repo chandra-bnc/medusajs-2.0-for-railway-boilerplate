@@ -30,9 +30,6 @@ const ProductShowcase = () => {
     <section className="py-16 small:py-20 bg-[#FFF8F3]">
       <div className="content-container">
         <div className="text-center mb-12">
-          <Text className="text-[#8B7355] uppercase tracking-wider text-sm mb-4">
-            OG Divine Line
-          </Text>
           <Heading level="h2" className="text-3xl small:text-4xl text-[#2C2C2C] font-light mb-2">
             PURE PLANT-BASED PORTFOLIO
           </Heading>
@@ -48,9 +45,6 @@ const ProductShowcase = () => {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-[#8B7355] bg-opacity-20 flex items-center justify-center">
-                  <Text className="text-white text-lg">{product.imagePlaceholder}</Text>
-                </div>
                 {product.size && (
                   <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full">
                     <Text className="text-[#8B7355] font-semibold text-sm">{product.size}</Text>

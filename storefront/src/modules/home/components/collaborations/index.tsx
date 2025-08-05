@@ -44,9 +44,6 @@ const Collaborations = () => {
                   fill
                   className="object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-[#8B7355] bg-opacity-20 rounded-lg flex items-center justify-center">
-                  <Text className="text-white text-lg text-center px-4">{collab.imagePlaceholder}</Text>
-                </div>
               </div>
               
               <div className={`space-y-4 ${index % 2 === 1 ? 'medium:order-1' : ''}`}>

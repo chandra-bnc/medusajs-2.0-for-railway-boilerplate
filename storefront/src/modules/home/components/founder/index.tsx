@@ -13,9 +13,6 @@ const Founder = () => {
               fill
               className="object-cover rounded-lg"
             />
-            <div className="absolute inset-0 bg-[#8B7355] bg-opacity-20 rounded-lg flex items-center justify-center">
-              <Text className="text-white text-lg">[Add Lauren Montgomery photo]</Text>
-            </div>
           </div>
           
           <div className="space-y-6">

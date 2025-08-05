@@ -17,30 +17,19 @@ const VideoSection = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Video Embed Placeholder */}
+          {/* Video Embed */}
           <div className="relative aspect-video bg-[#FFF8F3] rounded-lg overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-[#8B7355] flex items-center justify-center cursor-pointer hover:bg-[#6D5A44] transition-colors">
-                  <PlaySolid className="w-8 h-8 text-white ml-1" />
-                </div>
-                <Text className="text-[#8B7355]">
-                  [Embed Monty's brand video here]
-                </Text>
-                <Text className="text-sm text-[#5A5A5A] mt-2">
-                  Replace with YouTube/Vimeo embed code
-                </Text>
-              </div>
-            </div>
-            {/* Uncomment and add your video embed code here */}
-            {/* <iframe
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            <video
+              src="https://cdn.shopify.com/videos/c/o/v/3c807f6da0ba402cb67c0ed1068b5344.mp4"
               title="Monty's Brand Story"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            ></iframe> */}
+              controls
+              autoPlay
+              muted
+              loop
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           <div className="mt-8 text-center">

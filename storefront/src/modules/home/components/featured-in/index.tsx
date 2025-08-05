@@ -21,9 +21,6 @@ const FeaturedIn = () => {
             fill
             className="object-contain"
           />
-          <Text className="absolute inset-0 flex items-center justify-center text-[#8B7355] text-sm">
-            [Add media logos: Well+Good, Vogue, Forbes, etc.]
-          </Text>
         </div>
       </div>
     </section>
