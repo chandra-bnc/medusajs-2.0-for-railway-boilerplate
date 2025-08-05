@@ -6,6 +6,7 @@ import Button from "@/modules/common/components/button"
 import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
 import BulkTableQuantity from "../bulk-table-quantity"
+import B2BActions from "../product-actions/b2b-actions"
 
 const ProductVariantsTable = ({
   product,
@@ -134,22 +135,13 @@ const ProductVariantsTable = ({
           </Table.Body>
         </Table>
       </div>
-      <Button
-        onClick={handleAddToCart}
-        variant="primary"
-        className="w-full h-10"
-        isLoading={isAdding}
+      <B2BActions
+        product={product}
+        variant={totalQuantity > 0 ? product.variants?.[0] : undefined}
         disabled={totalQuantity === 0}
-        data-testid="add-product-button"
-      >
-        <ShoppingBag
-          className="text-white"
-          fill={totalQuantity === 0 ? "none" : "#fff"}
-        />
-        {totalQuantity === 0
-          ? "Choose product variant(s) above"
-          : "Add to cart"}
-      </Button>
+        isAdding={isAdding}
+        handleAddToCart={handleAddToCart}
+      />
     </div>
   )
 }
