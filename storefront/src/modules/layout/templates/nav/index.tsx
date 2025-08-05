@@ -35,15 +35,15 @@ export async function NavigationHeader() {
               href="/"
             >
               <Image
-                src="https://cdn.shopify.com/s/files/1/0279/6991/2877/files/MontysLogo.png?v=1732648144"
-                alt="Monty's Logo"
+                src="/BoxNCase.svg"
+                alt="BoxNCase Logo"
                 width={32}
                 height={32}
                 className="h-8 w-8 object-contain"
               />
               <h1 className="small:text-base text-sm font-medium flex items-center">
-                <span className="hidden xsmall:inline">B2B Portal</span>
-                <span className="xsmall:hidden">B2B</span>
+                <span className="hidden xsmall:inline">Monty's B2B Portal</span>
+                <span className="xsmall:hidden">Monty's</span>
               </h1>
             </LocalizedClientLink>
 

@@ -120,37 +120,35 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">myBoxNCase</span>
+              <span className="txt-small-plus txt-ui-fg-base">BoxNCase B2B</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
-                    href="https://github.com/medusajs"
+                    href="https://boxncase.com"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    GitHub
+                    Visit BoxNCase.com
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://docs.boxncase.com"
+                    href="https://boxncase.com/montys"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    Documentation
+                    Shop Montys at BoxNCase
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://github.com/medusajs/b2b-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
+                  <LocalizedClientLink
+                    href="/account"
                     className="hover:text-ui-fg-base"
                   >
-                    Source code
-                  </a>
+                    Login/Create Account
+                  </LocalizedClientLink>
                 </li>
               </ul>
             </div>
