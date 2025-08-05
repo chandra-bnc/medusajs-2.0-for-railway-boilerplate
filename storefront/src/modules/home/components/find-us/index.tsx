@@ -1,5 +1,6 @@
 import { Heading, Text } from "@medusajs/ui"
 import { MapPin } from "@medusajs/icons"
+import Image from "next/image"
 
 const FindUs = () => {
   const locations = [
@@ -51,6 +52,16 @@ const FindUs = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* Retailers Map Image */}
+        <div className="mt-12 relative h-64 small:h-96 max-w-4xl mx-auto rounded-lg overflow-hidden">
+          <Image
+            src="/retail-locations.jpg"
+            alt="Monty's Retail Locations Map"
+            fill
+            className="object-cover"
+          />
         </div>
       </div>
     </section>
