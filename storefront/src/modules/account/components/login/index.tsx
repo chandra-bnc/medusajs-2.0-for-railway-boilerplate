@@ -28,9 +28,7 @@ const Login = ({ setCurrentView }: Props) => {
       data-testid="login-page"
     >
       <Text className="text-4xl text-neutral-950 text-left">
-        Log in for faster
-        <br />
-        checkout.
+        Sign In To Order
       </Text>
       <form className="w-full" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">

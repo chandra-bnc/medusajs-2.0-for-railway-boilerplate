@@ -59,18 +59,6 @@ export async function NavigationHeader() {
             </nav>
           </div>
           <div className="flex justify-end items-center gap-1 small:gap-2">
-            {/* Search - Desktop only */}
-            <div className="relative mr-2 hidden small:inline-flex">
-              <input
-                disabled
-                type="text"
-                placeholder="Search for products"
-                className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base hover:cursor-not-allowed"
-                title="Install a search provider to enable product search"
-              />
-            </div>
-
-            <div className="h-4 w-px bg-neutral-300 hidden small:block" />
 
             {/* Quote Button - More compact on mobile */}
             {customer && cart?.items && cart.items.length > 0 ? (

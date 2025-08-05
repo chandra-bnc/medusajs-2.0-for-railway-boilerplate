@@ -114,11 +114,16 @@ const Register = ({ setCurrentView, regions }: Props) => {
       className="max-w-sm flex flex-col items-start gap-2 my-8"
       data-testid="register-page"
     >
-      <Text className="text-4xl text-neutral-950 text-left mb-4">
-        Create your
-        <br />
-        company account.
-      </Text>
+      <div className="mb-4">
+        <Text className="text-4xl text-neutral-950 text-left">
+          Create your
+          <br />
+          company account.
+        </Text>
+        <Text className="text-lg text-neutral-600 text-left mt-2">
+          Shop Montys Direct
+        </Text>
+      </div>
       <form className="w-full flex flex-col" action={formAction}>
         <div className="flex flex-col w-full gap-y-4">
           <Input
