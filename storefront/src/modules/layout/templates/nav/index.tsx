@@ -5,7 +5,6 @@ import AccountButton from "@/modules/account/components/account-button"
 import CartButton from "@/modules/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import FilePlus from "@/modules/common/icons/file-plus"
-import BoxNCaseLogo from "@/modules/common/icons/boxncase-logo"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
 import SideMenu from "@/modules/layout/components/side-menu"
 import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
@@ -14,6 +13,7 @@ import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-accou
 import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-button"
 import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
 import { Suspense } from "react"
+import Image from "next/image"
 
 export async function NavigationHeader() {
   const customer = await retrieveCustomer().catch(() => null)
@@ -30,26 +30,22 @@ export async function NavigationHeader() {
               <SideMenu regions={regions} />
             </div>
 
-            <div className="flex items-center gap-2">
-              <a
-                href="https://boxncase.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="Visit BoxNCase.com"
-              >
-                <BoxNCaseLogo className="w-6 h-6" />
-              </a>
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base flex items-center w-fit"
-                href="/"
-              >
-                <h1 className="small:text-base text-sm font-medium flex items-center">
-                  <span className="hidden xsmall:inline">Monty's B2B Portal</span>
-                  <span className="xsmall:hidden">Monty's</span>
-                </h1>
-              </LocalizedClientLink>
-            </div>
+            <LocalizedClientLink
+              className="hover:text-ui-fg-base flex items-center w-fit gap-2"
+              href="/"
+            >
+              <Image
+                src="https://cdn.shopify.com/s/files/1/0279/6991/2877/files/MontysLogo.png?v=1732648144"
+                alt="Monty's Logo"
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain"
+              />
+              <h1 className="small:text-base text-sm font-medium flex items-center">
+                <span className="hidden xsmall:inline">B2B Portal</span>
+                <span className="xsmall:hidden">B2B</span>
+              </h1>
+            </LocalizedClientLink>
 
             {/* Desktop Navigation */}
             <nav className="hidden small:block">

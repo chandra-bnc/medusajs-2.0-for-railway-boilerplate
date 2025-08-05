@@ -1,6 +1,7 @@
 import { listCategories } from "@/lib/data/categories"
 import { listCollections } from "@/lib/data/collections"
 import { Text, clx } from "@medusajs/ui"
+import Image from "next/image"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import BoxNCaseCTA from "@/modules/layout/components/medusa-cta"
@@ -22,9 +23,15 @@ export default async function Footer() {
           <div className="w-full small:w-auto">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="flex items-center gap-3"
             >
-              myBoxNCase Store
+              <Image
+                src="https://cdn.shopify.com/s/files/1/0279/6991/2877/files/MontysLogo.png?v=1732648144"
+                alt="Monty's Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-6 small:gap-10 medium:gap-x-16 grid grid-cols-1 xsmall:grid-cols-2 small:grid-cols-3 w-full small:w-auto">
@@ -151,7 +158,7 @@ export default async function Footer() {
         </div>
         <div className="flex flex-col small:flex-row w-full mb-8 small:mb-16 gap-4 small:gap-0 small:justify-between text-ui-fg-muted items-center small:items-start">
           <Text className="txt-compact-small text-center small:text-left">
-            © {new Date().getFullYear()} myBoxNCase Store. All rights reserved.
+            © {new Date().getFullYear()} Monty's B2B Portal powered by BoxNCase. All rights reserved.
           </Text>
           <BoxNCaseCTA />
         </div>
