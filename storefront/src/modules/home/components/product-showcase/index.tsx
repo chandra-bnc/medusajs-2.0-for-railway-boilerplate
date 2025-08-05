@@ -1,0 +1,99 @@
+"use client"
+
+import { Heading, Text } from "@medusajs/ui"
+import Image from "next/image"
+import Button from "@/modules/common/components/button"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+
+const ProductShowcase = () => {
+  const products = [
+    {
+      title: "CREAM CHEESE",
+      subtitle: "CLOUD CHEESE",
+      description: "Our cream cheese is made with 3 simple ingredients - cashews, sea salt, and cultures.",
+      image: "/montys-cream-cheese.jpg",
+      imagePlaceholder: "[Add Cloud Cheese product image]",
+      features: ["Cultured", "Fermented", "Probiotic-rich"]
+    },
+    {
+      title: "BUTTER",
+      subtitle: "CLOUD BUTTER",
+      description: "Our butter is made with 4 simple ingredients - cashews, coconut oil, almond oil, and sea salt.",
+      image: "/montys-butter.jpg", 
+      imagePlaceholder: "[Add Cloud Butter product image]",
+      features: ["Spreadable", "Bakeable", "Meltable"],
+      size: "2 lb"
+    }
+  ]
+
+  return (
+    <section className="py-16 small:py-20 bg-[#FFF8F3]">
+      <div className="content-container">
+        <div className="text-center mb-12">
+          <Text className="text-[#8B7355] uppercase tracking-wider text-sm mb-4">
+            OG Divine Line
+          </Text>
+          <Heading level="h2" className="text-3xl small:text-4xl text-[#2C2C2C] font-light mb-2">
+            PURE PLANT-BASED PORTFOLIO
+          </Heading>
+        </div>
+
+        <div className="grid grid-cols-1 medium:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {products.map((product, index) => (
+            <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm">
+              <div className="relative h-64 small:h-80">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[#8B7355] bg-opacity-20 flex items-center justify-center">
+                  <Text className="text-white text-lg">{product.imagePlaceholder}</Text>
+                </div>
+                {product.size && (
+                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full">
+                    <Text className="text-[#8B7355] font-semibold text-sm">{product.size}</Text>
+                  </div>
+                )}
+              </div>
+              
+              <div className="p-6 space-y-4">
+                <div>
+                  <Text className="text-[#8B7355] text-sm uppercase tracking-wider">
+                    {product.title}
+                  </Text>
+                  <Heading level="h3" className="text-2xl text-[#2C2C2C] font-light">
+                    {product.subtitle}
+                  </Heading>
+                </div>
+                
+                <Text className="text-[#5A5A5A] leading-relaxed">
+                  {product.description}
+                </Text>
+                
+                <div className="flex gap-2 flex-wrap">
+                  {product.features.map((feature, idx) => (
+                    <span key={idx} className="text-xs bg-[#FFF8F3] text-[#8B7355] px-3 py-1 rounded-full">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <LocalizedClientLink href="/store">
+            <Button variant="primary" className="rounded-full px-8 py-3 bg-[#8B7355] hover:bg-[#6D5A44]">
+              View Full Product Line
+            </Button>
+          </LocalizedClientLink>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default ProductShowcase

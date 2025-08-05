@@ -1,6 +1,13 @@
 import { listRegions } from "@/lib/data/regions"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
+import FeaturedIn from "@/modules/home/components/featured-in"
+import FindUs from "@/modules/home/components/find-us"
+import Founder from "@/modules/home/components/founder"
+import ProductShowcase from "@/modules/home/components/product-showcase"
+import Collaborations from "@/modules/home/components/collaborations"
+import IngredientsProcess from "@/modules/home/components/ingredients-process"
+import VideoSection from "@/modules/home/components/video-section"
 import SkeletonFeaturedProducts from "@/modules/skeletons/templates/skeleton-featured-products"
 import { Metadata } from "next"
 import { Suspense } from "react"
@@ -8,9 +15,9 @@ import { Suspense } from "react"
 export const dynamicParams = true
 
 export const metadata: Metadata = {
-  title: "myBoxNCase Next.js Starter Template",
+  title: "Monty's B2B Portal - Pure Plant-Based Dairy Essentials",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and myBoxNCase.",
+    "Shop wholesale pure plant-based cream cheese & butter made with cashews. The cleanest ingredients for really living.",
 }
 
 export async function generateStaticParams() {
@@ -32,8 +39,15 @@ export default async function Home(props: {
   const { countryCode } = params
 
   return (
-    <div className="flex flex-col gap-y-2 m-2">
+    <div className="flex flex-col">
       <Hero />
+      <FeaturedIn />
+      <ProductShowcase />
+      <FindUs />
+      <VideoSection />
+      <Founder />
+      <IngredientsProcess />
+      <Collaborations />
       <Suspense fallback={<SkeletonFeaturedProducts />}>
         <FeaturedProducts countryCode={countryCode} />
       </Suspense>
