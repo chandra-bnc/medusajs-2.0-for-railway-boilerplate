@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="h-[70vh] small:h-[80vh] w-full relative">
         {/* Background Image */}
         <Image
-          src="/montys-hero-bg.jpg"
+          src="/home-hero.png"
           alt="Monty's Pure Plant-Based Cream Cheese and Butter"
           fill
           priority
