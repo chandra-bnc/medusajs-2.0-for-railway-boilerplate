@@ -7,13 +7,16 @@ import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
 import BulkTableQuantity from "../bulk-table-quantity"
 import B2BActions from "../product-actions/b2b-actions"
+import { B2BCustomer } from "@/types"
 
 const ProductVariantsTable = ({
   product,
   region,
+  customer,
 }: {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
+  customer: B2BCustomer | null
 }) => {
   const [isAdding, setIsAdding] = useState(false)
   const [lineItemsMap, setLineItemsMap] = useState<
@@ -141,6 +144,7 @@ const ProductVariantsTable = ({
         disabled={totalQuantity === 0}
         isAdding={isAdding}
         handleAddToCart={handleAddToCart}
+        customer={customer}
       />
     </div>
   )

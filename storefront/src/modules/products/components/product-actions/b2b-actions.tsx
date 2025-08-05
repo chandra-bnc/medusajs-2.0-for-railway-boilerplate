@@ -5,11 +5,11 @@ import { HttpTypes } from "@medusajs/types"
 import Button from "@/modules/common/components/button"
 import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
 import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
-import { useCustomer } from "@/lib/context/customer-context"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { Text } from "@medusajs/ui"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { B2BCustomer } from "@/types"
 
 type B2BActionsProps = {
   product: HttpTypes.StoreProduct
@@ -17,6 +17,7 @@ type B2BActionsProps = {
   disabled?: boolean
   isAdding?: boolean
   handleAddToCart: () => Promise<void>
+  customer: B2BCustomer | null
 }
 
 export default function B2BActions({
@@ -25,8 +26,8 @@ export default function B2BActions({
   disabled,
   isAdding,
   handleAddToCart,
+  customer,
 }: B2BActionsProps) {
-  const { customer } = useCustomer()
   const { cart } = useCart()
   const router = useRouter()
   const [isAddingAndQuote, setIsAddingAndQuote] = useState(false)
