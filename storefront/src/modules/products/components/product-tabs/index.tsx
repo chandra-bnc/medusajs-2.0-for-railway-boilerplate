@@ -2,7 +2,7 @@
 
 import { HttpTypes } from "@medusajs/types"
 import { Table, Text } from "@medusajs/ui"
-import Markdown from "react-markdown"
+import parse from "html-react-parser"
 import Accordion from "./accordion"
 
 type ProductTabsProps = {
@@ -42,24 +42,14 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
 
 const ProductSpecsTab = ({ product }: ProductTabsProps) => {
   return (
-    <div className="text-small-regular py-8 xl:w-2/3">
-      <Markdown
-        components={{
-          p: ({ children }) => (
-            <Text className="text-neutral-950 mb-2">{children}</Text>
-          ),
-          h2: ({ children }) => (
-            <Text className="text-xl text-neutral-950 my-4 font-semibold">
-              {children}
-            </Text>
-          ),
-          h3: ({ children }) => (
-            <Text className="text-lg text-neutral-950 mb-2">{children}</Text>
-          ),
-        }}
-      >
-        {product.description ? product.description : "-"}
-      </Markdown>
+    <div className="text-small-regular py-8 xl:w-2/3 prose prose-sm max-w-none">
+      {product.description ? (
+        <div className="[&_p]:text-neutral-950 [&_p]:mb-2 [&_h2]:text-xl [&_h2]:text-neutral-950 [&_h2]:my-4 [&_h2]:font-semibold [&_h3]:text-lg [&_h3]:text-neutral-950 [&_h3]:mb-2">
+          {parse(product.description)}
+        </div>
+      ) : (
+        <Text>-</Text>
+      )}
     </div>
   )
 }
