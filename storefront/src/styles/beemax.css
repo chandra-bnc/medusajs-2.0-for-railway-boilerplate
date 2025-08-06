@@ -1,0 +1,60 @@
+/* BeeMax Brand Colors */
+:root {
+  /* Primary Colors */
+  --beemax-honey-yellow: #E0B25C;
+  --beemax-honey-yellow-hover: #d4a04f;
+  --beemax-cocoa-brown: #4A2C2A;
+  --beemax-ivory: #F8F3EE;
+  
+  /* Text Colors */
+  --beemax-text-primary: #4A2C2A;
+  --beemax-text-secondary: #5A5A5A;
+  --beemax-text-light: #ffffff;
+  
+  /* Accent Colors */
+  --beemax-accent-warm: #8B7355;
+  --beemax-accent-light: #FFF8F3;
+}
+
+/* Typography Overrides for Serif Headers */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* BeeMax Custom Button Styles */
+.btn-beemax-primary {
+  background-color: var(--beemax-honey-yellow);
+  color: var(--beemax-cocoa-brown);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-beemax-primary:hover {
+  background-color: var(--beemax-honey-yellow-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(224, 178, 92, 0.3);
+}
+
+/* Card Hover Effects */
+.beemax-card {
+  transition: all 0.3s ease;
+}
+
+.beemax-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Honey-themed Background Gradients */
+.bg-honey-gradient {
+  background: linear-gradient(135deg, var(--beemax-ivory) 0%, var(--beemax-accent-light) 100%);
+}
+
+/* Custom Focus States */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--beemax-honey-yellow) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(224, 178, 92, 0.1);
+}

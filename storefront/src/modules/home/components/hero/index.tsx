@@ -9,46 +9,48 @@ import Image from "next/image"
 const Hero = () => {
   return (
     <div className="relative w-full">
-      {/* Main Hero Section with new image */}
-      <div className="h-[70vh] small:h-[80vh] w-full relative">
+      {/* Main Hero Section with BeeMax branding */}
+      <div className="h-[75vh] small:h-[85vh] w-full relative overflow-hidden">
         {/* Background Image */}
         <Image
-          src="/home-hero.png"
-          alt="Monty's Pure Plant-Based Cream Cheese and Butter"
+          src="/beemax-hero.jpg"
+          alt="BeeMax Belgian Chocolate Waffle Cones and Honey Products"
           fill
           priority
           className="object-cover object-center"
         />
         
-        {/* Content Overlay - Buttons positioned at bottom */}
-        <div className="absolute inset-0 z-10 flex flex-col justify-end items-center pb-12 small:pb-16">
-          <div className="flex flex-col small:flex-row gap-4 justify-center items-center">
-            <LocalizedClientLink href="/store">
-              <Button 
-                variant="primary" 
-                className="rounded-full px-8 py-3 text-base bg-white text-[#2C2C2C] hover:bg-gray-100 shadow-lg"
-              >
-                Shop Wholesale
-              </Button>
-            </LocalizedClientLink>
-            <LocalizedClientLink href="/account">
-              <Button 
-                variant="secondary" 
-                className="rounded-full px-8 py-3 text-base bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2C2C2C] transition-all"
-              >
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Sign In To Order
-              </Button>
-            </LocalizedClientLink>
-          </div>
+        {/* Dark overlay for better text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        
+        {/* Content Overlay */}
+        <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-6">
+          {/* Logo/Brand Name */}
+          <Heading className="text-5xl small:text-7xl font-serif text-white mb-4 drop-shadow-lg">
+            BeeMax
+          </Heading>
+          
+          {/* Tagline */}
+          <Text className="text-xl small:text-2xl text-white mb-6 font-light drop-shadow-md">
+            Nature's Sweetness, Perfectly Crafted
+          </Text>
+          
+          {/* Sub-tagline */}
+          <Text className="text-base small:text-lg text-white/90 mb-12 max-w-2xl drop-shadow-md">
+            Real Belgian Chocolate. Natural Ingredients. Maximum Flavor.
+          </Text>
+          
+          {/* CTA Button */}
+          <LocalizedClientLink href="/store">
+            <Button 
+              variant="primary" 
+              className="rounded-full px-10 py-4 text-lg bg-[#E0B25C] text-[#4A2C2C] hover:bg-[#d4a04f] shadow-xl font-semibold transition-all transform hover:scale-105"
+            >
+              Shop Now
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </LocalizedClientLink>
         </div>
-      </div>
-
-      {/* Philosophy Quote - Optional, can be removed if not needed */}
-      <div className="bg-[#FFF8F3] py-12 small:py-16 px-6 text-center">
-        <Text className="text-2xl small:text-3xl text-[#2C2C2C] font-light italic max-w-3xl mx-auto">
-          "Simplicity is the ultimate sophistication."
-        </Text>
       </div>
     </div>
   )

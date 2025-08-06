@@ -25,13 +25,7 @@ export default async function Footer() {
               href="/"
               className="flex items-center gap-3"
             >
-              <Image
-                src="https://cdn.shopify.com/s/files/1/0279/6991/2877/files/MontysLogo.png?v=1732648144"
-                alt="Monty's Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
+              <Text className="text-2xl font-serif text-[#4A2C2A]">BeeMax</Text>
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-6 small:gap-10 medium:gap-x-16 grid grid-cols-1 xsmall:grid-cols-2 small:grid-cols-3 w-full small:w-auto">
@@ -120,34 +114,46 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">BoxNCase B2B</span>
+              <span className="txt-small-plus txt-ui-fg-base">Customer Support</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
-                    href="https://boxncase.com"
-                    target="_blank"
-                    rel="noreferrer"
+                    href="tel:+16467500990"
                     className="hover:text-ui-fg-base"
                   >
-                    Visit BoxNCase.com
+                    +1 646-750-0990
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://boxncase.com/montys"
-                    target="_blank"
-                    rel="noreferrer"
+                    href="mailto:sales@beemax.us"
                     className="hover:text-ui-fg-base"
                   >
-                    Shop Montys at BoxNCase
+                    sales@beemax.us
                   </a>
                 </li>
                 <li>
                   <LocalizedClientLink
-                    href="/account"
+                    href="/faq"
                     className="hover:text-ui-fg-base"
                   >
-                    Login/Create Account
+                    FAQs
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/shipping"
+                    className="hover:text-ui-fg-base"
+                  >
+                    Shipping
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/returns"
+                    className="hover:text-ui-fg-base"
+                  >
+                    Returns & Refunds
                   </LocalizedClientLink>
                 </li>
               </ul>
@@ -155,30 +161,43 @@ export default async function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-8 mb-8 small:mb-16">
-          {/* Light.svg taking 1/3 of footer */}
-          <div className="flex justify-center">
-            <a
-              href="https://boxncase.com"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:opacity-80 transition-opacity block w-full max-w-xs small:max-w-sm"
-            >
-              <Image
-                src="/light.svg"
-                alt="BoxNCase"
-                width={400}
-                height={400}
-                className="w-full h-auto"
+          {/* Newsletter Signup */}
+          <div className="bg-[#F8F3EE] rounded-lg p-8 max-w-2xl mx-auto w-full text-center">
+            <Text className="txt-large txt-ui-fg-base mb-2">Be the first to know</Text>
+            <Text className="txt-small text-ui-fg-subtle mb-6">
+              Subscribe to get special offers, new product announcements, and exclusive deals
+            </Text>
+            <form className="flex flex-col small:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-2 rounded-full border border-ui-border-base focus:outline-none focus:border-[#E0B25C]"
               />
-            </a>
+              <button
+                type="submit"
+                className="px-6 py-2 bg-[#E0B25C] text-white rounded-full hover:bg-[#d4a04f] transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
           
-          {/* Copyright and CTA */}
+          {/* Copyright and Links */}
           <div className="flex flex-col small:flex-row w-full gap-4 small:gap-0 small:justify-between text-ui-fg-muted items-center">
             <Text className="txt-compact-small text-center small:text-left">
-              © {new Date().getFullYear()} Monty's B2B Portal powered by BoxNCase. All rights reserved.
+              © {new Date().getFullYear()} BeeMax. All rights reserved. 267 5th Ave, New York, NY
             </Text>
-            <BoxNCaseCTA />
+            <div className="flex gap-6 txt-compact-small">
+              <LocalizedClientLink href="/about" className="hover:text-ui-fg-base">
+                About Us
+              </LocalizedClientLink>
+              <LocalizedClientLink href="/contact" className="hover:text-ui-fg-base">
+                Contact
+              </LocalizedClientLink>
+              <LocalizedClientLink href="/privacy" className="hover:text-ui-fg-base">
+                Privacy Policy
+              </LocalizedClientLink>
+            </div>
           </div>
         </div>
       </div>

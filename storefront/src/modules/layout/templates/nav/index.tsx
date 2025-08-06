@@ -34,16 +34,8 @@ export async function NavigationHeader() {
               className="hover:text-ui-fg-base flex items-center w-fit gap-2"
               href="/"
             >
-              <Image
-                src="/BoxNCase.svg"
-                alt="BoxNCase Logo"
-                width={32}
-                height={32}
-                className="h-8 w-8 object-contain"
-              />
-              <h1 className="small:text-base text-sm font-medium flex items-center">
-                <span className="hidden xsmall:inline">Monty's B2B Portal</span>
-                <span className="xsmall:hidden">Monty's</span>
+              <h1 className="text-2xl small:text-3xl font-serif text-[#4A2C2A] flex items-center">
+                BeeMax
               </h1>
             </LocalizedClientLink>
 
