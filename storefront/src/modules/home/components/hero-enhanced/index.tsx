@@ -3,7 +3,6 @@
 import { ArrowRight } from "@medusajs/icons"
 import { Heading, Text } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import BeemaxLogo from "@/modules/common/components/beemax-logo"
 import Image from "next/image"
 
 const HeroEnhanced = () => {
@@ -29,7 +28,13 @@ const HeroEnhanced = () => {
           <div className="max-w-4xl">
             {/* Small logo signature */}
             <div className="mb-8">
-              <BeemaxLogo className="h-8 w-auto" variant="white" />
+              <Image
+                src="/beemax.jpg"
+                alt="BeeMax"
+                width={120}
+                height={40}
+                className="h-8 w-auto object-contain opacity-90"
+              />
             </div>
 
             {/* Main Content */}

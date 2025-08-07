@@ -4,9 +4,9 @@ import { listRegions } from "@/lib/data/regions"
 import AccountButton from "@/modules/account/components/account-button"
 import CartButton from "@/modules/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import BeemaxLogo from "@/modules/common/components/beemax-logo"
 import FilePlus from "@/modules/common/icons/file-plus"
 import { Text } from "@medusajs/ui"
+import Image from "next/image"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
 import SideMenu from "@/modules/layout/components/side-menu"
 import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
@@ -48,7 +48,13 @@ export async function NavigationHeader() {
 
               {/* Logo and Title */}
               <LocalizedClientLink href="/" className="flex items-center gap-3">
-                <BeemaxLogo className="h-8 small:h-10 w-auto" />
+                <Image
+                  src="/beemax.jpg"
+                  alt="BeeMax Logo"
+                  width={120}
+                  height={40}
+                  className="h-8 small:h-10 w-auto object-contain"
+                />
                 <Text className="text-lg small:text-xl font-medium text-beemax-text-primary">
                   B2B Portal
                 </Text>
