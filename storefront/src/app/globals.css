@@ -143,6 +143,11 @@ a:hover {
   100% { background-position: 0% 50%; }
 }
 
+/* Animation delay utility */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

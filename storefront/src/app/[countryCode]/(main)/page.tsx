@@ -1,6 +1,8 @@
 import { listRegions } from "@/lib/data/regions"
 import FeaturedProducts from "@/modules/home/components/featured-products"
-import Hero from "@/modules/home/components/hero"
+import HeroEnhanced from "@/modules/home/components/hero-enhanced"
+import TinyBitesSection from "@/modules/home/components/tiny-bites-section"
+import DubaiChocolateSection from "@/modules/home/components/dubai-chocolate-section"
 import BeemaxShowcase from "@/modules/home/components/beemax-showcase"
 import Founder from "@/modules/home/components/founder"
 import IngredientsProcess from "@/modules/home/components/ingredients-process"
@@ -36,7 +38,9 @@ export default async function Home(props: {
 
   return (
     <div className="flex flex-col">
-      <Hero />
+      <HeroEnhanced />
+      <TinyBitesSection />
+      <DubaiChocolateSection />
       <BeemaxShowcase />
       <Founder />
       <IngredientsProcess />
