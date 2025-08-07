@@ -7,74 +7,7 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 const BeemaxShowcase = () => {
   return (
     <>
-      {/* Section 1: Lucky Bites Cones */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#FFB5A0] to-[#FFD4C9]">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-[#8B4513] rounded-full transform rotate-45 scale-150"></div>
-            <div className="absolute inset-4 bg-[#D2691E] rounded-full transform rotate-12"></div>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 w-48 h-48 opacity-10 transform -rotate-12">
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-[#F4A460] rounded-full"></div>
-          </div>
-        </div>
-
-        <div className="content-container relative z-10">
-          <div className="text-center mb-12">
-            <Text className="text-[#8B4513] uppercase tracking-[0.2em] text-sm font-bold mb-3">
-              LUCKY BITES COLLECTION
-            </Text>
-            <Heading className="text-5xl font-bold text-[#4A2C2A] mb-4">
-              Tiny Bites
-            </Heading>
-            <Text className="text-2xl text-[#8B4513] font-light italic">
-              Big flavor. Tiny cones.
-            </Text>
-          </div>
-
-          {/* Horizontal Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {[
-              { name: "Milk Chocolate", color: "#A0522D", description: "Classic creamy delight" },
-              { name: "Dark Chocolate", color: "#3B2F2F", description: "Rich & intense cocoa" },
-              { name: "White Chocolate", color: "#FFF8DC", description: "Sweet vanilla dream" },
-              { name: "Sea Salt Caramel", color: "#D2691E", description: "Sweet meets salty" }
-            ].map((flavor, index) => (
-              <div 
-                key={index} 
-                className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div 
-                  className="w-full h-48 rounded-xl mb-4 relative overflow-hidden"
-                  style={{ backgroundColor: flavor.color + '20' }}
-                >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Text className="text-6xl opacity-20">🍦</Text>
-                  </div>
-                  {/* Placeholder for product image */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Text className="text-sm text-gray-500">Product Image 300x300</Text>
-                  </div>
-                </div>
-                <Heading level="h3" className="text-xl font-bold text-[#4A2C2A] mb-2">
-                  {flavor.name}
-                </Heading>
-                <Text className="text-sm text-[#8B4513] mb-3">
-                  {flavor.description}
-                </Text>
-                <Text className="text-xs text-gray-600">
-                  Box of 24 mini cones
-                </Text>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: Dubai Chocolate */}
+      {/* Dubai Chocolate Section - Now First */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-br from-[#D4A574] via-[#F4E4C1] to-[#D4A574]">
         {/* Textured Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -143,7 +76,7 @@ const BeemaxShowcase = () => {
         </div>
       </section>
 
-      {/* Section 3: BeeMax Honey */}
+      {/* Section 2: BeeMax Honey */}
       <section className="relative py-20 overflow-hidden bg-gradient-to-b from-[#FFE4B5] via-white to-[#FFF8DC]">
         {/* Hexagonal Pattern Background */}
         <div className="absolute inset-0 opacity-5">

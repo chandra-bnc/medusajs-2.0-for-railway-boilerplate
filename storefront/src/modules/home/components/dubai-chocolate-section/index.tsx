@@ -37,28 +37,20 @@ const DubaiChocolateSection = () => {
             <div className="relative">
               {/* Mobile-safe video wrapper */}
               <div className="relative aspect-[9/16] max-w-sm mx-auto medium:mx-0 rounded-2xl overflow-hidden shadow-2xl">
-                <iframe
-                  src="https://www.youtube.com/embed/acw5Vq-OLkU?autoplay=1&mute=1&loop=1&playlist=acw5Vq-OLkU&controls=0&modestbranding=1&showinfo=0"
-                  title="Dubai Chocolate Viral Video"
-                  className="absolute inset-0 w-full h-full"
-                  allow="autoplay; encrypted-media"
+                <iframe 
+                  width="501" 
+                  height="891" 
+                  src="https://www.youtube.com/embed/acw5Vq-OLkU?autoplay=1&mute=1&loop=1&playlist=acw5Vq-OLkU&controls=0&modestbranding=1&showinfo=0" 
+                  title="TRYING THE VIRAL DUBAI CHOCOLATE BAR" 
+                  frameBorder="0" 
+                  allow="autoplay; encrypted-media; picture-in-picture" 
                   allowFullScreen
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
               
-              {/* "As Seen on YouTube" Badge */}
-              <div className="absolute -top-4 -right-4 bg-beemax-deep-brown text-white px-6 py-3 shadow-lg">
-                <Text className="text-xs font-medium uppercase tracking-wider">
-                  Viral Sensation
-                </Text>
-              </div>
-              
-              {/* View count callout */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl">
-                <Text className="text-sm font-semibold text-[#4A2C2A]">
-                  10M+ Views
-                </Text>
-              </div>
+              {/* Video overlay for autoplay context */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
           </div>
 
@@ -71,14 +63,19 @@ const DubaiChocolateSection = () => {
               </Text>
             </div>
 
+            {/* Section Label */}
+            <Text className="text-sm uppercase tracking-[0.2em] text-beemax-gold mb-4">
+              As Seen on YouTube
+            </Text>
+            
             {/* Main Heading */}
-            <Heading className="text-5xl small:text-6xl medium:text-7xl font-serif text-[#FFD700] mb-4 drop-shadow-lg showcase-heading">
-              Dubai Style
+            <Heading className="text-4xl small:text-5xl medium:text-6xl font-serif text-white mb-6">
+              Dubai Chocolate
             </Heading>
             
-            {/* Tagline */}
-            <Text className="text-2xl small:text-3xl text-[#F4E4C1] mb-8 font-light italic showcase-subheading">
-              Luxury in every layer.
+            {/* Description */}
+            <Text className="text-xl small:text-2xl text-white/90 mb-8 font-light">
+              Try the viral chocolate bar with pistachio cream.
             </Text>
 
             {/* Product Features */}
@@ -98,12 +95,11 @@ const DubaiChocolateSection = () => {
               ))}
             </div>
 
-            {/* Description */}
-            <Text className="text-lg text-white/90 mb-8 leading-relaxed max-w-xl mx-auto medium:mx-0">
-              Experience the viral sensation that's taking the world by storm. 
-              Our Dubai-style chocolate bar features layers of crispy kataifi, 
-              smooth pistachio cream, and premium Belgian chocolate - 
-              all finished with a touch of edible gold.
+            {/* Extended Description */}
+            <Text className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl mx-auto medium:mx-0">
+              Indulge in layers of crispy kataifi, smooth pistachio cream, 
+              and premium Belgian chocolate. Each bar is handcrafted with 
+              the finest ingredients for an unforgettable taste experience.
             </Text>
 
             {/* Product Options */}

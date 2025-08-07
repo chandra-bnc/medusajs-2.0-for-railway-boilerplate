@@ -2,10 +2,9 @@ import { listRegions } from "@/lib/data/regions"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import HeroEnhanced from "@/modules/home/components/hero-enhanced"
 import TinyBitesSection from "@/modules/home/components/tiny-bites-section"
+import DiscoverJoySection from "@/modules/home/components/discover-joy-section"
 import DubaiChocolateSection from "@/modules/home/components/dubai-chocolate-section"
-import BeemaxShowcase from "@/modules/home/components/beemax-showcase"
-import Founder from "@/modules/home/components/founder"
-import IngredientsProcess from "@/modules/home/components/ingredients-process"
+import CompanyPresentation from "@/modules/home/components/company-presentation"
 import SkeletonFeaturedProducts from "@/modules/skeletons/templates/skeleton-featured-products"
 import { Metadata } from "next"
 import { Suspense } from "react"
@@ -40,10 +39,9 @@ export default async function Home(props: {
     <div className="flex flex-col">
       <HeroEnhanced />
       <TinyBitesSection />
+      <DiscoverJoySection />
       <DubaiChocolateSection />
-      <BeemaxShowcase />
-      <Founder />
-      <IngredientsProcess />
+      <CompanyPresentation />
       <Suspense fallback={<SkeletonFeaturedProducts />}>
         <FeaturedProducts countryCode={countryCode} />
       </Suspense>
