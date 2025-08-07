@@ -38,36 +38,17 @@ const HeroEnhanced = () => {
             </div>
 
             {/* Main Content */}
-            <div className="space-y-6">
-              {/* Tagline */}
-              <Text className="text-sm small:text-base uppercase tracking-[0.2em] text-white/80 font-light">
-                Premium Belgian Chocolates & Natural Honey
-              </Text>
-
-              {/* Main Headline */}
-              <Heading className="text-4xl small:text-5xl medium:text-6xl large:text-7xl font-serif text-white leading-tight">
-                From Honey to Chocolate
-                <span className="block text-beemax-gold mt-2">
-                  Discover BeeMax
-                </span>
-              </Heading>
-
-              {/* Subheading */}
-              <Text className="text-lg small:text-xl medium:text-2xl text-white/90 font-light max-w-2xl">
-                Wholesale excellence meets artisanal quality. 
-                Partner with us for premium confections.
-              </Text>
-
+            <div className="space-y-8">
               {/* CTA Buttons */}
-              <div className="flex flex-col small:flex-row gap-4 pt-4">
+              <div className="flex flex-col small:flex-row gap-4">
                 <LocalizedClientLink href="/store">
-                  <button className="btn-premium bg-white !text-beemax-deep-brown hover:bg-beemax-neutral-100 flex items-center justify-center gap-2 min-w-[200px]">
+                  <button className="bg-white text-beemax-deep-brown hover:bg-gray-100 flex items-center justify-center gap-2 min-w-[200px] px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 font-medium text-base">
                     Browse Catalog
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </LocalizedClientLink>
                 <LocalizedClientLink href="/wholesale">
-                  <button className="btn-secondary !border-white !text-white hover:!bg-white hover:!text-beemax-deep-brown min-w-[200px]">
+                  <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-beemax-deep-brown min-w-[200px] px-8 py-4 rounded-full transition-all duration-300 font-medium text-base">
                     Wholesale Program
                   </button>
                 </LocalizedClientLink>

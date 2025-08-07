@@ -26,16 +26,16 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <>
       <NavigationHeader />
-      <div className="flex items-center text-neutral-50 justify-center small:p-4 p-2 text-center bg-neutral-900 small:gap-2 gap-1 text-sm">
+      <div className="flex items-center text-neutral-50 justify-center small:p-4 p-2 text-center bg-neutral-900 small:gap-2 gap-1 text-sm relative z-40">
         <div className="flex flex-col small:flex-row small:gap-2 gap-1 items-center">
           <span className="flex items-center gap-1">
             <ExclamationCircleSolid className="inline" color="#A1A1AA" />
-            Not a Retailer or Distributor? Shop Monty's at
+            Not a Retailer or Distributor? Shop BeeMax at
           </span>
 
           <a
             className="group hover:text-ui-fg-interactive-hover text-ui-fg-interactive self-end small:self-auto"
-            href="https://boxncase.com/montys"
+            href="https://boxncase.com/beemax"
             target="_blank"
           >
             BoxNCase.com
