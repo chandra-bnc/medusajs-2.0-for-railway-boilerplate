@@ -5,6 +5,7 @@ import Image from "next/image"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import BoxNCaseCTA from "@/modules/layout/components/medusa-cta"
+import NewsletterSignup from "@/modules/layout/components/newsletter-signup"
 
 export default async function Footer() {
   const { collections } = await listCollections({
@@ -162,25 +163,7 @@ export default async function Footer() {
         </div>
         <div className="flex flex-col gap-8 mb-8 small:mb-16">
           {/* Newsletter Signup */}
-          <div className="bg-[#F8F3EE] rounded-lg p-8 max-w-2xl mx-auto w-full text-center">
-            <Text className="txt-large txt-ui-fg-base mb-2">Be the first to know</Text>
-            <Text className="txt-small text-ui-fg-subtle mb-6">
-              Subscribe to get special offers, new product announcements, and exclusive deals
-            </Text>
-            <form className="flex flex-col small:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-full border border-ui-border-base focus:outline-none focus:border-[#E0B25C]"
-              />
-              <button
-                type="submit"
-                className="px-6 py-2 bg-[#E0B25C] text-white rounded-full hover:bg-[#d4a04f] transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
+          <NewsletterSignup />
           
           {/* Copyright and Links */}
           <div className="flex flex-col small:flex-row w-full gap-4 small:gap-0 small:justify-between text-ui-fg-muted items-center">
