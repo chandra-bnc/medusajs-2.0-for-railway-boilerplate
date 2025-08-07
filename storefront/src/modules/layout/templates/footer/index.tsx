@@ -5,7 +5,6 @@ import Image from "next/image"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import BoxNCaseCTA from "@/modules/layout/components/medusa-cta"
-import NewsletterSignup from "@/modules/layout/components/newsletter-signup"
 
 export default async function Footer() {
   const { collections } = await listCollections({
@@ -162,25 +161,30 @@ export default async function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-8 mb-8 small:mb-16">
-          {/* Newsletter Signup */}
-          <NewsletterSignup />
+          {/* Powered by BoxNCase */}
+          <div className="flex justify-center">
+            <a
+              href="https://boxncase.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:opacity-80 transition-opacity block w-full max-w-xs small:max-w-sm"
+            >
+              <Image
+                src="/light.svg"
+                alt="BoxNCase"
+                width={400}
+                height={400}
+                className="w-full h-auto"
+              />
+            </a>
+          </div>
           
-          {/* Copyright and Links */}
+          {/* Copyright and CTA */}
           <div className="flex flex-col small:flex-row w-full gap-4 small:gap-0 small:justify-between text-ui-fg-muted items-center">
             <Text className="txt-compact-small text-center small:text-left">
-              © {new Date().getFullYear()} BeeMax. All rights reserved. 267 5th Ave, New York, NY
+              © {new Date().getFullYear()} BeeMax powered by BoxNCase. All rights reserved.
             </Text>
-            <div className="flex gap-6 txt-compact-small">
-              <LocalizedClientLink href="/about" className="hover:text-ui-fg-base">
-                About Us
-              </LocalizedClientLink>
-              <LocalizedClientLink href="/contact" className="hover:text-ui-fg-base">
-                Contact
-              </LocalizedClientLink>
-              <LocalizedClientLink href="/privacy" className="hover:text-ui-fg-base">
-                Privacy Policy
-              </LocalizedClientLink>
-            </div>
+            <BoxNCaseCTA />
           </div>
         </div>
       </div>
