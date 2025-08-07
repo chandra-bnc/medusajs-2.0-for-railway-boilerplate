@@ -2,91 +2,81 @@
 
 import { ArrowRight } from "@medusajs/icons"
 import { Heading, Text } from "@medusajs/ui"
-import Button from "@/modules/common/components/button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import BeemaxLogo from "@/modules/common/components/beemax-logo"
 import Image from "next/image"
 
 const HeroEnhanced = () => {
   return (
-    <div className="relative w-full">
-      {/* Main Hero Section */}
-      <div className="h-[80vh] small:h-[90vh] w-full relative overflow-hidden">
-        {/* Background Image */}
+    <section className="relative w-full h-[70vh] small:h-[80vh] medium:h-[90vh] overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
         <Image
           src="/home-hero.png"
           alt="BeeMax Premium Products"
           fill
           priority
           className="object-cover object-center"
+          quality={100}
         />
-        
-        {/* Subtle gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
-        
-        {/* Logo positioned top-left */}
-        <div className="absolute top-8 left-8 small:top-12 small:left-12 z-20">
-          <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-            <div className="w-10 h-10 small:w-12 small:h-12 bg-[#E0B25C] rounded-full flex items-center justify-center">
-              <span className="text-[#4A2C2A] text-xl small:text-2xl">🐝</span>
+        {/* Premium gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/30" />
+      </div>
+
+      {/* Content Container */}
+      <div className="relative z-10 h-full flex items-end">
+        <div className="content-container w-full pb-12 small:pb-16 medium:pb-20">
+          <div className="max-w-4xl">
+            {/* Small logo signature */}
+            <div className="mb-8">
+              <BeemaxLogo className="h-8 w-auto" variant="white" />
             </div>
-            <Text className="text-xl small:text-2xl font-serif text-[#4A2C2A] font-bold">
-              BeeMax
-            </Text>
-          </div>
-        </div>
-        
-        {/* Content Overlay - Bottom aligned for product-forward approach */}
-        <div className="absolute inset-x-0 bottom-0 z-10 px-6 pb-12 small:pb-20">
-          <div className="content-container">
-            <div className="max-w-3xl">
-              {/* Main Headline */}
-              <Heading className="text-4xl small:text-5xl medium:text-6xl font-serif text-white mb-4 drop-shadow-lg">
-                From Honey to Chocolate –
-                <br />
-                <span className="text-[#FFD700]">Discover BeeMax</span>
-              </Heading>
-              
-              {/* Subheader */}
-              <Text className="text-xl small:text-2xl text-white/90 mb-8 font-light drop-shadow-md">
-                Made for Wholesale. Loved by All.
+
+            {/* Main Content */}
+            <div className="space-y-6">
+              {/* Tagline */}
+              <Text className="text-sm small:text-base uppercase tracking-[0.2em] text-white/80 font-light">
+                Premium Belgian Chocolates & Natural Honey
               </Text>
-              
+
+              {/* Main Headline */}
+              <Heading className="text-4xl small:text-5xl medium:text-6xl large:text-7xl font-serif text-white leading-tight">
+                From Honey to Chocolate
+                <span className="block text-beemax-gold mt-2">
+                  Discover BeeMax
+                </span>
+              </Heading>
+
+              {/* Subheading */}
+              <Text className="text-lg small:text-xl medium:text-2xl text-white/90 font-light max-w-2xl">
+                Wholesale excellence meets artisanal quality. 
+                Partner with us for premium confections.
+              </Text>
+
               {/* CTA Buttons */}
-              <div className="flex flex-col small:flex-row gap-4">
+              <div className="flex flex-col small:flex-row gap-4 pt-4">
                 <LocalizedClientLink href="/store">
-                  <Button 
-                    variant="primary" 
-                    className="w-full small:w-auto rounded-full px-8 py-4 text-lg bg-[#E0B25C] text-[#4A2C2A] hover:bg-[#d4a04f] shadow-xl font-semibold transition-all transform hover:scale-105 hover:shadow-2xl"
-                  >
+                  <button className="btn-premium bg-white !text-beemax-deep-brown hover:bg-beemax-neutral-100 flex items-center justify-center gap-2 min-w-[200px]">
                     Browse Catalog
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </LocalizedClientLink>
-                <LocalizedClientLink href="/account">
-                  <Button 
-                    variant="secondary" 
-                    className="w-full small:w-auto rounded-full px-8 py-4 text-lg bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#4A2C2A] transition-all"
-                  >
-                    Wholesale Login
-                  </Button>
+                <LocalizedClientLink href="/wholesale">
+                  <button className="btn-secondary !border-white !text-white hover:!bg-white hover:!text-beemax-deep-brown min-w-[200px]">
+                    Wholesale Program
+                  </button>
                 </LocalizedClientLink>
               </div>
             </div>
           </div>
         </div>
-        
-        {/* Decorative element - animated honey drip */}
-        <div className="absolute top-1/2 right-10 hidden medium:block">
-          <div className="w-20 h-32 opacity-20">
-            <svg viewBox="0 0 80 128" className="w-full h-full animate-pulse">
-              <path d="M40 0 Q40 80 40 100 Q40 128 20 110 Q0 100 0 80 Q0 60 20 50 Q40 40 60 50 Q80 60 80 80 Q80 100 60 110 Q40 128 40 100" 
-                    fill="#FFD700" 
-                    opacity="0.6"/>
-            </svg>
-          </div>
-        </div>
       </div>
-    </div>
+
+      {/* Subtle scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-px h-12 bg-white/30" />
+      </div>
+    </section>
   )
 }
 

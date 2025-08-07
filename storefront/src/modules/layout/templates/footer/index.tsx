@@ -1,10 +1,8 @@
 import { listCategories } from "@/lib/data/categories"
 import { listCollections } from "@/lib/data/collections"
-import { Text, clx } from "@medusajs/ui"
-import Image from "next/image"
-
+import { Text } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import BoxNCaseCTA from "@/modules/layout/components/medusa-cta"
+import BeemaxLogo from "@/modules/common/components/beemax-logo"
 
 export default async function Footer() {
   const { collections } = await listCollections({
@@ -17,99 +15,68 @@ export default async function Footer() {
   })
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
-      <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-8 small:gap-y-6 small:flex-row items-start justify-between py-12 small:py-20 medium:py-40">
-          <div className="w-full small:w-auto">
-            <LocalizedClientLink
-              href="/"
-              className="flex items-center gap-3"
-            >
-              <Image
-                src="/BoxNCase.svg"
-                alt="BoxNCase Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </LocalizedClientLink>
-          </div>
-          <div className="text-small-regular gap-6 small:gap-10 medium:gap-x-16 grid grid-cols-1 xsmall:grid-cols-2 small:grid-cols-3 w-full small:w-auto">
+    <footer className="bg-beemax-neutral-100 border-t border-beemax-neutral-300">
+      <div className="content-container">
+        {/* Main Footer Content */}
+        <div className="py-16 small:py-20 medium:py-24">
+          <div className="grid grid-cols-1 small:grid-cols-2 medium:grid-cols-4 gap-8 medium:gap-12">
+            {/* Brand Section */}
+            <div className="col-span-1 small:col-span-2 medium:col-span-1">
+              <LocalizedClientLink href="/" className="inline-block mb-6">
+                <BeemaxLogo className="h-10 w-auto" />
+              </LocalizedClientLink>
+              <Text className="text-sm text-beemax-text-secondary leading-relaxed mb-6">
+                Premium Belgian chocolates and natural honey products. 
+                Crafted for wholesale excellence.
+              </Text>
+              <div className="space-y-2">
+                <Text className="text-sm font-medium text-beemax-text-primary">
+                  Contact Wholesale
+                </Text>
+                <Text className="text-sm text-beemax-text-secondary">
+                  +1 (800) BEEMAX
+                </Text>
+                <Text className="text-sm text-beemax-text-secondary">
+                  wholesale@beemax.us
+                </Text>
+              </div>
+            </div>
+
+            {/* Products */}
             {product_categories && product_categories?.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Categories
-                </span>
-                <ul
-                  className="grid grid-cols-1 gap-2"
-                  data-testid="footer-categories"
-                >
+              <div>
+                <h3 className="text-sm font-medium text-beemax-text-primary uppercase tracking-wider mb-6">
+                  Products
+                </h3>
+                <ul className="space-y-3">
                   {product_categories?.slice(0, 6).map((c) => {
-                    if (c.parent_category) {
-                      return
-                    }
-
-                    const children =
-                      c.category_children?.map((child) => ({
-                        name: child.name,
-                        handle: child.handle,
-                        id: child.id,
-                      })) || null
-
+                    if (c.parent_category) return null
                     return (
-                      <li
-                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
-                        key={c.id}
-                      >
+                      <li key={c.id}>
                         <LocalizedClientLink
-                          className={clx(
-                            "hover:text-ui-fg-base",
-                            children && "txt-small-plus"
-                          )}
+                          className="text-sm text-beemax-text-secondary hover:text-beemax-gold transition-colors duration-200"
                           href={`/categories/${c.handle}`}
-                          data-testid="category-link"
                         >
                           {c.name}
                         </LocalizedClientLink>
-                        {children && (
-                          <ul className="grid grid-cols-1 ml-3 gap-2">
-                            {children &&
-                              children.map((child) => (
-                                <li key={child.id}>
-                                  <LocalizedClientLink
-                                    className="hover:text-ui-fg-base"
-                                    href={`/categories/${child.handle}`}
-                                    data-testid="category-link"
-                                  >
-                                    {child.name}
-                                  </LocalizedClientLink>
-                                </li>
-                              ))}
-                          </ul>
-                        )}
                       </li>
                     )
                   })}
                 </ul>
               </div>
             )}
+
+            {/* Collections */}
             {collections && collections.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+              <div>
+                <h3 className="text-sm font-medium text-beemax-text-primary uppercase tracking-wider mb-6">
                   Collections
-                </span>
-                <ul
-                  className={clx(
-                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
-                    {
-                      "grid-cols-2": (collections?.length || 0) > 3,
-                    }
-                  )}
-                >
+                </h3>
+                <ul className="space-y-3">
                   {collections?.slice(0, 6).map((c) => (
                     <li key={c.id}>
                       <LocalizedClientLink
-                        className="hover:text-ui-fg-base"
+                        className="text-sm text-beemax-text-secondary hover:text-beemax-gold transition-colors duration-200"
                         href={`/collections/${c.handle}`}
                       >
                         {c.title}
@@ -119,66 +86,79 @@ export default async function Footer() {
                 </ul>
               </div>
             )}
-            <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">BoxNCase B2B</span>
-              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+
+            {/* Business */}
+            <div>
+              <h3 className="text-sm font-medium text-beemax-text-primary uppercase tracking-wider mb-6">
+                Business
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <LocalizedClientLink
+                    href="/wholesale"
+                    className="text-sm text-beemax-text-secondary hover:text-beemax-gold transition-colors duration-200"
+                  >
+                    Wholesale Program
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/account"
+                    className="text-sm text-beemax-text-secondary hover:text-beemax-gold transition-colors duration-200"
+                  >
+                    B2B Portal
+                  </LocalizedClientLink>
+                </li>
                 <li>
                   <a
                     href="https://boxncase.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                    className="text-sm text-beemax-text-secondary hover:text-beemax-gold transition-colors duration-200"
                   >
-                    Visit BoxNCase.com
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://boxncase.com/beemax"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Shop BeeMax at BoxNCase
+                    BoxNCase Platform
                   </a>
                 </li>
                 <li>
                   <LocalizedClientLink
-                    href="/account"
-                    className="hover:text-ui-fg-base"
+                    href="/terms"
+                    className="text-sm text-beemax-text-secondary hover:text-beemax-gold transition-colors duration-200"
                   >
-                    Login/Create Account
+                    Terms & Conditions
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/privacy"
+                    className="text-sm text-beemax-text-secondary hover:text-beemax-gold transition-colors duration-200"
+                  >
+                    Privacy Policy
                   </LocalizedClientLink>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-8 mb-8 small:mb-16">
-          {/* Powered by BoxNCase */}
-          <div className="flex justify-center">
-            <a
-              href="https://boxncase.com"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:opacity-80 transition-opacity block w-full max-w-xs small:max-w-sm"
-            >
-              <Image
-                src="/light.svg"
-                alt="BoxNCase"
-                width={400}
-                height={400}
-                className="w-full h-auto"
-              />
-            </a>
-          </div>
-          
-          {/* Copyright and CTA */}
-          <div className="flex flex-col small:flex-row w-full gap-4 small:gap-0 small:justify-between text-ui-fg-muted items-center">
-            <Text className="txt-compact-small text-center small:text-left">
-              © {new Date().getFullYear()} BeeMax powered by BoxNCase. All rights reserved.
+
+        {/* Bottom Bar */}
+        <div className="border-t border-beemax-neutral-300 py-6">
+          <div className="flex flex-col small:flex-row justify-between items-center gap-4">
+            <Text className="text-xs text-beemax-text-muted tracking-wide">
+              © {new Date().getFullYear()} BeeMax. All rights reserved.
             </Text>
-            <BoxNCaseCTA />
+            <div className="flex items-center gap-1">
+              <Text className="text-xs text-beemax-text-muted">
+                Powered by
+              </Text>
+              <a
+                href="https://boxncase.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs text-beemax-text-secondary hover:text-beemax-gold transition-colors duration-200 font-medium"
+              >
+                BoxNCase
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -24,7 +24,32 @@ module.exports = {
         "2xlarge": "1920px",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)"],
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        serif: ["Playfair Display", "Georgia", "serif"],
+      },
+      colors: {
+        beemax: {
+          gold: "var(--beemax-gold)",
+          "gold-hover": "var(--beemax-gold-hover)",
+          "deep-brown": "var(--beemax-deep-brown)",
+          pistachio: "var(--beemax-pistachio)",
+          neutral: {
+            100: "var(--beemax-neutral-100)",
+            200: "var(--beemax-neutral-200)",
+            300: "var(--beemax-neutral-300)",
+            400: "var(--beemax-neutral-400)",
+            500: "var(--beemax-neutral-500)",
+            600: "var(--beemax-neutral-600)",
+            700: "var(--beemax-neutral-700)",
+            800: "var(--beemax-neutral-800)",
+          },
+          text: {
+            primary: "var(--beemax-text-primary)",
+            secondary: "var(--beemax-text-secondary)",
+            light: "var(--beemax-text-light)",
+            muted: "var(--beemax-text-muted)",
+          },
+        },
       },
       keyframes: {
         "accordion-open": {

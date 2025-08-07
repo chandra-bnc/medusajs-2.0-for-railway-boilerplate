@@ -53,18 +53,19 @@ const TinyBitesSection = () => {
 
       {/* Content */}
       <div className="relative z-10 content-container">
-        {/* Callout Box */}
+        {/* Section Header */}
         <div className="text-center mb-12 small:mb-16">
-          <div className="inline-block bg-[#E0B25C]/90 backdrop-blur-sm rounded-full px-8 py-4 shadow-2xl mb-8">
-            <Text className="text-2xl small:text-3xl font-serif text-[#4A2C2A] font-bold">
-              Big Flavor. Tiny Cones.
-            </Text>
-          </div>
+          <Text className="text-sm uppercase tracking-[0.2em] text-beemax-gold mb-6">
+            Featured Collection
+          </Text>
           
-          <Heading className="text-4xl small:text-5xl medium:text-6xl font-serif text-white mb-4">
-            Tiny Bites Collection
+          <Heading className="text-4xl small:text-5xl medium:text-6xl font-serif text-white mb-4 heading-premium">
+            Tiny Bites
           </Heading>
-          <Text className="text-xl text-white/80 max-w-2xl mx-auto">
+          <Text className="text-2xl small:text-3xl font-serif text-white/90 mb-6 font-light italic">
+            Big Flavor. Tiny Cones.
+          </Text>
+          <Text className="text-lg text-white/70 max-w-2xl mx-auto font-light">
             Perfectly portioned waffle cones filled with premium Belgian chocolate
           </Text>
         </div>
@@ -124,7 +125,7 @@ const TinyBitesSection = () => {
         {/* Section CTA */}
         <div className="text-center">
           <LocalizedClientLink href="/store">
-            <button className="bg-white text-[#4A2C2A] hover:bg-[#E0B25C] hover:text-[#4A2C2A] px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+            <button className="btn-premium bg-white !text-beemax-deep-brown hover:bg-beemax-neutral-100 min-w-[250px]">
               Explore Full Collection
             </button>
           </LocalizedClientLink>

@@ -47,9 +47,9 @@ const DubaiChocolateSection = () => {
               </div>
               
               {/* "As Seen on YouTube" Badge */}
-              <div className="absolute -top-4 -right-4 bg-[#FF0000] text-white px-4 py-2 rounded-full shadow-lg transform rotate-12 animate-pulse">
-                <Text className="text-sm font-bold flex items-center gap-2">
-                  <span>▶</span> As Seen on YouTube
+              <div className="absolute -top-4 -right-4 bg-beemax-deep-brown text-white px-6 py-3 shadow-lg">
+                <Text className="text-xs font-medium uppercase tracking-wider">
+                  Viral Sensation
                 </Text>
               </div>
               
@@ -65,9 +65,9 @@ const DubaiChocolateSection = () => {
           {/* Right Column - Product Info */}
           <div className="order-1 medium:order-2 text-center medium:text-left">
             {/* NEW Badge */}
-            <div className="inline-block bg-[#90EE90] text-[#4A2C2A] px-6 py-2 rounded-full mb-6 shadow-lg">
-              <Text className="text-sm font-bold tracking-wider">
-                ✨ NEW EXCLUSIVE CREATION ✨
+            <div className="inline-block mb-6">
+              <Text className="text-sm uppercase tracking-[0.2em] text-beemax-gold">
+                New Exclusive Creation
               </Text>
             </div>
 
@@ -84,14 +84,14 @@ const DubaiChocolateSection = () => {
             {/* Product Features */}
             <div className="flex flex-wrap gap-3 mb-8 justify-center medium:justify-start">
               {[
-                "🍫 Belgian Chocolate",
-                "🥜 Premium Pistachios",
-                "🍯 Real Honey",
-                "✨ Gold Dusted"
+                "Belgian Chocolate",
+                "Premium Pistachios",
+                "Real Honey",
+                "Gold Dusted"
               ].map((feature, index) => (
                 <span 
                   key={index}
-                  className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm"
+                  className="border border-beemax-gold/50 text-beemax-gold px-4 py-2 text-sm uppercase tracking-wider"
                 >
                   {feature}
                 </span>
@@ -140,13 +140,8 @@ const DubaiChocolateSection = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 text-6xl opacity-20 animate-float">
-        🍃
-      </div>
-      <div className="absolute bottom-10 right-10 text-6xl opacity-20 animate-float animation-delay-2000">
-        🍃
-      </div>
-      <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-[#FFD700] rounded-full opacity-10 blur-xl animate-pulse" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-beemax-gold/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-beemax-pistachio/10 rounded-full blur-3xl" />
     </section>
   )
 }
