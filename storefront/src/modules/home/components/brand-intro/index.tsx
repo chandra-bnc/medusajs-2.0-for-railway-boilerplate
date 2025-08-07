@@ -10,7 +10,7 @@ const BrandIntro = () => {
     {
       icon: Package,
       title: "Real Belgian Chocolate",
-      description: "Milk, Dark, White, Salted Caramel, S'mores..."
+      description: "Milk, dark, salted caramel, mint, peppermint..."
     },
     {
       icon: Sparkles,
@@ -19,7 +19,7 @@ const BrandIntro = () => {
     },
     {
       icon: Award,
-      title: "Traditional recipes with modern innovation",
+      title: "Tradition meets innovation",
       description: "Time-tested methods, contemporary taste"
     }
   ]
@@ -32,9 +32,10 @@ const BrandIntro = () => {
             Discover the BeeMax Difference
           </Heading>
           <Text className="text-lg text-[#5A5A5A] leading-relaxed">
-            BeeMax was born in 2021 amid a search for simple comfort. We blend centuries-old 
-            tradition with natural honey from the Aegean and Mediterranean, plus real Belgian 
-            chocolate to deliver compact bites of pure pleasure.
+            BeeMax was founded in 2021 during the pandemic—a time when people were seeking warmth 
+            and comfort in the simplest things. We blend centuries-old tradition with honey sourced 
+            from the Aegean and Mediterranean and real Belgian chocolate to deliver compact bites 
+            of pure pleasure.
           </Text>
         </div>
         

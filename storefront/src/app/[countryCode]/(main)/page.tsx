@@ -1,10 +1,11 @@
 import { listRegions } from "@/lib/data/regions"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
-// import BrandIntro from "@/modules/home/components/brand-intro"
-// import FeaturedCollections from "@/modules/home/components/featured-collections"
-// import Testimonials from "@/modules/home/components/testimonials"
-// import ValuesSection from "@/modules/home/components/values-section"
+import BrandIntro from "@/modules/home/components/brand-intro"
+import FeaturedCollections from "@/modules/home/components/featured-collections"
+import Testimonials from "@/modules/home/components/testimonials"
+import ValuesSection from "@/modules/home/components/values-section"
+import SupportContact from "@/modules/home/components/support-contact"
 import SkeletonFeaturedProducts from "@/modules/skeletons/templates/skeleton-featured-products"
 import { Metadata } from "next"
 import { Suspense } from "react"
@@ -43,16 +44,11 @@ export default async function Home(props: {
     return (
       <div className="flex flex-col">
         <Hero />
-        {/* <BrandIntro />
+        <BrandIntro />
         <FeaturedCollections />
         <Testimonials />
-        <ValuesSection /> */}
-        <div className="py-16 bg-gray-50">
-          <div className="content-container">
-            <h2 className="text-2xl font-bold mb-4">Welcome to BeeMax</h2>
-            <p>Premium Belgian Chocolate & Natural Honey Products</p>
-          </div>
-        </div>
+        <ValuesSection />
+        <SupportContact />
         <Suspense fallback={<SkeletonFeaturedProducts />}>
           <FeaturedProducts countryCode={countryCode} />
         </Suspense>

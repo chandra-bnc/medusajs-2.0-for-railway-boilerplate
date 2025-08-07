@@ -1,28 +1,41 @@
 import { getBaseURL } from "@/lib/util/env"
 import { Toaster } from "@medusajs/ui"
 import { Analytics } from "@vercel/analytics/next"
-import { GeistSans } from "geist/font/sans"
+import { Playfair_Display, Lato } from "next/font/google"
 import { Metadata } from "next"
 import "@/styles/globals.css"
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
+const lato = Lato({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  variable: '--font-lato',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
   title: {
-    default: "Monty's B2B Portal - Pure Plant-Based Dairy Essentials",
-    template: "%s | Monty's B2B Portal"
+    default: "BeeMax - Premium Belgian Chocolate & Natural Honey Products",
+    template: "%s | BeeMax"
   },
-  description: "Shop wholesale pure plant-based cream cheese & butter made with cashews. The cleanest ingredients for really living.",
+  description: "Discover BeeMax's premium Belgian chocolate waffle cones and natural honey products. Real Belgian chocolate, natural ingredients, maximum flavor.",
   openGraph: {
-    title: "Monty's B2B Portal - Pure Plant-Based Dairy Essentials",
-    description: "Shop wholesale pure plant-based cream cheese & butter made with cashews. The cleanest ingredients for really living.",
+    title: "BeeMax - Premium Belgian Chocolate & Natural Honey Products",
+    description: "Discover BeeMax's premium Belgian chocolate waffle cones and natural honey products. Real Belgian chocolate, natural ingredients, maximum flavor.",
     url: getBaseURL(),
-    siteName: "Monty's B2B Portal",
+    siteName: "BeeMax",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Monty's Pure Plant-Based Cream Cheese and Butter",
+        alt: "BeeMax Belgian Chocolate Waffle Cones and Honey Products",
       }
     ],
     locale: "en_US",
@@ -30,15 +43,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Monty's B2B Portal - Pure Plant-Based Dairy Essentials",
-    description: "Shop wholesale pure plant-based cream cheese & butter made with cashews.",
+    title: "BeeMax - Premium Belgian Chocolate & Natural Honey Products",
+    description: "Discover BeeMax's premium Belgian chocolate waffle cones and natural honey products.",
     images: ["/og-image.png"],
   },
 }
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-mode="light" className={GeistSans.variable}>
+    <html lang="en" data-mode="light" className={`${playfair.variable} ${lato.variable}`}>
       <body>
         <main className="relative">{props.children}</main>
         <Toaster className="z-[99999]" position="bottom-left" />

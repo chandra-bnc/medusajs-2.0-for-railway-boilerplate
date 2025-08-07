@@ -9,21 +9,21 @@ const FeaturedCollections = () => {
   const collections = [
     {
       title: "Tiny Bites Waffle Mini Cones",
-      description: "Bite-sized Belgian chocolate treats in milk, dark, white, and sea salt caramel",
+      description: "Bite-sized Belgian chocolate treats (milk, dark, white, sea salt caramel)",
       image: "/montys-cream-cheese.jpg",
-      href: "/collections/waffle-mini-cones"
+      href: "/store"
     },
     {
       title: "Honey Spoon",
       description: "Portable raw honey spoons, perfect for snacking on the go",
       image: "/montys-butter.jpg",
-      href: "/collections/honey-spoons"
+      href: "/store"
     },
     {
       title: "Raw & Acacia Honey Jars",
       description: "Full-jar natural honey from Turkey, traceable and quality-certified",
       image: "/montys-process.jpg",
-      href: "/collections/honey-jars"
+      href: "/store"
     }
   ]
 
@@ -64,7 +64,7 @@ const FeaturedCollections = () => {
                       variant="secondary" 
                       className="text-[#E0B25C] border-[#E0B25C] hover:bg-[#E0B25C] hover:text-white transition-all"
                     >
-                      Shop Collection
+                      Shop Gallery
                     </Button>
                   </div>
                 </div>
