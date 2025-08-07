@@ -9,8 +9,9 @@ if (process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL) {
 
 console.log("🔧 Storefront SDK Configuration:")
 console.log("Backend URL:", MEDUSA_BACKEND_URL)
-console.log("Publishable Key:", process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY ? "SET" : "NOT SET")
+console.log("Publishable Key:", process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY ? `${process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY.substring(0, 20)}...` : "NOT SET")
 console.log("Environment:", process.env.NODE_ENV)
+console.log("Full Key Length:", process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY?.length || 0)
 
 export const sdk = new Medusa({
   baseUrl: MEDUSA_BACKEND_URL,
