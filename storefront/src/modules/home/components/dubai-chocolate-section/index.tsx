@@ -38,7 +38,7 @@ const DubaiChocolateSection = () => {
               {/* Mobile-safe video wrapper */}
               <div className="relative aspect-[9/16] max-w-sm mx-auto medium:mx-0 rounded-2xl overflow-hidden shadow-2xl">
                 <iframe
-                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID&controls=0&modestbranding=1&showinfo=0"
+                  src="https://www.youtube.com/embed/acw5Vq-OLkU?autoplay=1&mute=1&loop=1&playlist=acw5Vq-OLkU&controls=0&modestbranding=1&showinfo=0"
                   title="Dubai Chocolate Viral Video"
                   className="absolute inset-0 w-full h-full"
                   allow="autoplay; encrypted-media"

@@ -11,25 +11,29 @@ const TinyBitesSection = () => {
       id: 1,
       flavor: "Milk Chocolate",
       description: "Creamy Belgian milk chocolate in a crispy cone",
-      color: "#D2691E"
+      color: "#D2691E",
+      image: "/milk-chocolate-cone.png"
     },
     {
       id: 2,
       flavor: "Dark Chocolate",
       description: "Rich 70% dark chocolate for true connoisseurs",
-      color: "#3B2414"
+      color: "#3B2414",
+      image: "/dark-chocolate-cone.png"
     },
     {
       id: 3,
       flavor: "White Chocolate",
       description: "Smooth vanilla-infused white chocolate delight",
-      color: "#FFF8DC"
+      color: "#FFF8DC",
+      image: "/white-chocolate-cone.png"
     },
     {
       id: 4,
       flavor: "Salted Caramel",
       description: "Sweet caramel with a hint of sea salt",
-      color: "#D2691E"
+      color: "#D2691E",
+      image: "/salted-caramel-cone.png"
     }
   ]
 
@@ -75,14 +79,16 @@ const TinyBitesSection = () => {
                 animationDelay: `${index * 100}ms`
               }}
             >
-              {/* Cone Image Placeholder */}
+              {/* Cone Image */}
               <div 
-                className="relative h-48 small:h-56 bg-gradient-to-br from-white to-gray-100 flex items-center justify-center"
+                className="relative h-48 small:h-56 bg-gradient-to-br from-white to-gray-100 overflow-hidden"
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Text className="text-8xl opacity-20">🍦</Text>
-                </div>
-                <Text className="text-sm text-gray-500 z-10">Cone Image</Text>
+                <Image
+                  src={product.image}
+                  alt={`${product.flavor} Cone`}
+                  fill
+                  className="object-contain p-4 group-hover:scale-110 transition-transform duration-300"
+                />
                 
                 {/* Color accent bar */}
                 <div 
