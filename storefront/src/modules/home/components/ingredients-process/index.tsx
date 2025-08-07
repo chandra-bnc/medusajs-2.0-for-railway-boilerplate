@@ -21,10 +21,10 @@ const IngredientsProcess = () => {
   ]
 
   return (
-    <section className="py-16 small:py-20 bg-[#FFF8F3]">
+    <section className="py-16 small:py-20 bg-[#F8F3EE]">
       <div className="content-container">
         <div className="text-center mb-12">
-          <Heading level="h2" className="text-3xl small:text-4xl text-[#2C2C2C] font-light mb-6">
+          <Heading level="h2" className="text-3xl small:text-4xl text-[#4A2C2A] font-light mb-6">
             NATURAL INGREDIENTS.<br />
             TRADITIONAL METHODS.<br />
             MAXIMUM FLAVOR.
@@ -37,7 +37,7 @@ const IngredientsProcess = () => {
             {process.map((item, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white flex items-center justify-center">
-                  <Text className="text-2xl font-light text-[#8B7355]">{item.step}</Text>
+                  <Text className="text-2xl font-light text-[#E0B25C]">{item.step}</Text>
                 </div>
                 <Text className="font-semibold text-[#2C2C2C] text-sm">{item.title}</Text>
                 <Text className="text-xs text-[#5A5A5A]">{item.description}</Text>

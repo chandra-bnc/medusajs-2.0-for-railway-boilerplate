@@ -25,7 +25,13 @@ export default async function Footer() {
               href="/"
               className="flex items-center gap-3"
             >
-              <Text className="text-2xl font-serif text-[#4A2C2A]">BeeMax</Text>
+              <Image
+                src="/BoxNCase.svg"
+                alt="BoxNCase Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-6 small:gap-10 medium:gap-x-16 grid grid-cols-1 xsmall:grid-cols-2 small:grid-cols-3 w-full small:w-auto">
@@ -114,46 +120,34 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Customer Support</span>
+              <span className="txt-small-plus txt-ui-fg-base">BoxNCase B2B</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
-                    href="tel:+16467500990"
+                    href="https://boxncase.com"
+                    target="_blank"
+                    rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    +1 646-750-0990
+                    Visit BoxNCase.com
                   </a>
                 </li>
                 <li>
                   <a
-                    href="mailto:sales@beemax.us"
+                    href="https://boxncase.com/beemax"
+                    target="_blank"
+                    rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    sales@beemax.us
+                    Shop BeeMax at BoxNCase
                   </a>
                 </li>
                 <li>
                   <LocalizedClientLink
-                    href="/faq"
+                    href="/account"
                     className="hover:text-ui-fg-base"
                   >
-                    FAQs
-                  </LocalizedClientLink>
-                </li>
-                <li>
-                  <LocalizedClientLink
-                    href="/shipping"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Shipping
-                  </LocalizedClientLink>
-                </li>
-                <li>
-                  <LocalizedClientLink
-                    href="/returns"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Returns & Refunds
+                    Login/Create Account
                   </LocalizedClientLink>
                 </li>
               </ul>

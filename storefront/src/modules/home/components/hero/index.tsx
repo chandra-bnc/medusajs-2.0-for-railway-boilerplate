@@ -44,7 +44,7 @@ const Hero = () => {
           <LocalizedClientLink href="/store">
             <Button 
               variant="primary" 
-              className="rounded-full px-10 py-4 text-lg bg-[#E0B25C] text-[#4A2C2C] hover:bg-[#d4a04f] shadow-xl font-semibold transition-all transform hover:scale-105"
+              className="rounded-full px-10 py-4 text-lg bg-[#E0B25C] text-[#4A2C2A] hover:bg-[#d4a04f] shadow-xl font-semibold transition-all transform hover:scale-105"
             >
               Shop Now
               <ArrowRight className="w-5 h-5 ml-2" />

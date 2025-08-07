@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* BeeMax Brand Colors */
+/* BeeMax Brand Colors - Override Medusa UI defaults */
 :root {
   /* Primary Colors */
   --beemax-honey-yellow: #E0B25C;
@@ -20,11 +20,76 @@
   /* Accent Colors */
   --beemax-accent-warm: #8B7355;
   --beemax-accent-light: #FFF8F3;
+  
+  /* Override Medusa UI colors */
+  --ui-fg-base: #4A2C2A;
+  --ui-fg-subtle: #5A5A5A;
+  --ui-fg-muted: #8B7355;
+  --ui-button-bg: #E0B25C;
+  --ui-button-bg-hover: #d4a04f;
+  --ui-bg-base: #ffffff;
+  --ui-bg-subtle: #F8F3EE;
+  --ui-bg-surface: #FFF8F3;
+  --ui-border-base: #e5e7eb;
 }
 
 /* Typography */
 .font-serif {
   font-family: Georgia, serif;
+}
+
+/* Override button colors */
+.bg-ui-button-base {
+  background-color: var(--beemax-honey-yellow) !important;
+}
+
+.bg-ui-button-base:hover {
+  background-color: var(--beemax-honey-yellow-hover) !important;
+}
+
+/* Update primary button styles */
+button[data-button="primary"],
+.btn-primary {
+  background-color: var(--beemax-honey-yellow) !important;
+  color: var(--beemax-cocoa-brown) !important;
+}
+
+button[data-button="primary"]:hover,
+.btn-primary:hover {
+  background-color: var(--beemax-honey-yellow-hover) !important;
+}
+
+/* Update section backgrounds */
+.bg-neutral-100 {
+  background-color: var(--beemax-ivory) !important;
+}
+
+/* Override text colors */
+.text-ui-fg-base {
+  color: var(--beemax-text-primary) !important;
+}
+
+.text-ui-fg-subtle {
+  color: var(--beemax-text-secondary) !important;
+}
+
+.text-ui-fg-muted {
+  color: var(--beemax-accent-warm) !important;
+}
+
+/* Update link hover states */
+a:hover {
+  color: var(--beemax-honey-yellow) !important;
+}
+
+/* Update feature badges */
+.bg-ui-bg-subtle {
+  background-color: var(--beemax-ivory) !important;
+}
+
+/* Update store page background */
+.bg-gray-50 {
+  background-color: var(--beemax-ivory) !important;
 }
 
 @layer utilities {

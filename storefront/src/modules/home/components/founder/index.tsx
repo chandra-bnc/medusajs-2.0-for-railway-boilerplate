@@ -17,10 +17,10 @@ const Founder = () => {
           
           <div className="space-y-6">
             <div>
-              <Text className="text-[#8B7355] uppercase tracking-wider text-sm mb-4">
+              <Text className="text-[#E0B25C] uppercase tracking-wider text-sm mb-4 font-semibold">
                 Our Story
               </Text>
-              <Heading level="h2" className="text-3xl small:text-4xl text-[#2C2C2C] font-light mb-4">
+              <Heading level="h2" className="text-3xl small:text-4xl text-[#4A2C2A] font-light mb-4">
                 The BeeMax Journey
               </Heading>
             </div>
@@ -34,10 +34,10 @@ const Founder = () => {
               </Text>
               
               <div>
-                <Text className="font-semibold text-[#2C2C2C] text-lg">
+                <Text className="font-semibold text-[#4A2C2A] text-lg">
                   BEEMAX TEAM
                 </Text>
-                <Text className="text-[#8B7355] text-sm">
+                <Text className="text-[#E0B25C] text-sm font-medium">
                   CRAFTING NATURE'S SWEETNESS SINCE 2021
                 </Text>
               </div>
