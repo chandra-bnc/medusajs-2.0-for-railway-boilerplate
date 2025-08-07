@@ -78,22 +78,6 @@ const DubaiChocolateSection = () => {
               Try the viral chocolate bar with pistachio cream.
             </Text>
 
-            {/* Product Features */}
-            <div className="flex flex-wrap gap-3 mb-8 justify-center medium:justify-start">
-              {[
-                "Belgian Chocolate",
-                "Premium Pistachios",
-                "Real Honey",
-                "Gold Dusted"
-              ].map((feature, index) => (
-                <span 
-                  key={index}
-                  className="border border-beemax-gold/50 text-beemax-gold px-4 py-2 text-sm uppercase tracking-wider"
-                >
-                  {feature}
-                </span>
-              ))}
-            </div>
 
             {/* Extended Description */}
             <Text className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl mx-auto medium:mx-0">

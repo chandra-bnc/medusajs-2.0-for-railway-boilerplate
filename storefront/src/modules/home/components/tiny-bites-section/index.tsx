@@ -38,48 +38,53 @@ const TinyBitesSection = () => {
   ]
 
   return (
-    <section className="relative py-16 small:py-24 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/hero-image.jpg"
-          alt="Tiny Bites Background"
-          fill
-          className="object-cover object-center"
-        />
-        {/* Dark gradient overlay for text visibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/80" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 content-container">
-        {/* Section Header */}
-        <div className="text-center mb-12 small:mb-16">
-          <Text className="text-sm uppercase tracking-[0.2em] text-beemax-gold mb-6">
-            Featured Collection
-          </Text>
-          
-          <Heading className="text-4xl small:text-5xl medium:text-6xl font-serif text-white mb-4 heading-premium">
-            Tiny Bites
-          </Heading>
-          <Text className="text-2xl small:text-3xl font-serif text-white/90 mb-6 font-light italic">
-            Big Flavor. Tiny Cones.
-          </Text>
-          <Text className="text-lg text-white/70 max-w-2xl mx-auto font-light">
-            Perfectly portioned waffle cones filled with premium Belgian chocolate
-          </Text>
+    <>
+      {/* Hero Section with Tiny Bites Header */}
+      <section className="relative h-[70vh] small:h-[80vh] medium:h-[90vh] overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src="/home-hero.png"
+            alt="BeeMax Premium Products"
+            fill
+            priority
+            className="object-cover object-center"
+            quality={100}
+          />
+          {/* Dark gradient overlay for text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/60" />
         </div>
 
-        {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 small:grid-cols-2 medium:grid-cols-4 gap-6 mb-12">
-          {products.map((product, index) => (
-            <div 
-              key={product.id}
-              className="group bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              style={{
-                animationDelay: `${index * 100}ms`
-              }}
-            >
+        {/* Hero Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="content-container text-center">
+            <Heading className="text-5xl small:text-6xl medium:text-7xl font-serif text-white mb-4 drop-shadow-lg">
+              Tiny Bites
+            </Heading>
+            <Text className="text-2xl small:text-3xl font-serif text-white/90 mb-6 font-light italic">
+              Big Flavor. Tiny Cones.
+            </Text>
+            <Text className="text-xl text-white/80 max-w-2xl mx-auto font-light">
+              Perfectly portioned waffle cones filled with premium Belgian chocolate
+            </Text>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Cards Section */}
+      <section className="py-16 small:py-20 bg-white">
+        <div className="content-container">
+
+          {/* Product Cards Grid */}
+          <div className="grid grid-cols-1 small:grid-cols-2 medium:grid-cols-4 gap-6 mb-12 max-w-6xl mx-auto">
+            {products.map((product, index) => (
+              <div 
+                key={product.id}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                style={{
+                  animationDelay: `${index * 100}ms`
+                }}
+              >
               {/* Cone Image */}
               <div 
                 className="relative h-48 small:h-56 bg-gradient-to-br from-white to-gray-100 overflow-hidden"
@@ -122,20 +127,17 @@ const TinyBitesSection = () => {
           ))}
         </div>
 
-        {/* Section CTA */}
-        <div className="text-center">
-          <LocalizedClientLink href="/store">
-            <button className="btn-premium bg-white !text-beemax-deep-brown hover:bg-beemax-neutral-100 min-w-[250px]">
-              Explore Full Collection
-            </button>
-          </LocalizedClientLink>
+          {/* Section CTA */}
+          <div className="text-center">
+            <LocalizedClientLink href="/store">
+              <button className="bg-beemax-deep-brown text-white hover:bg-beemax-neutral-800 min-w-[250px] px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-base">
+                Explore Full Collection
+              </button>
+            </LocalizedClientLink>
+          </div>
         </div>
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 w-20 h-20 bg-[#E0B25C] rounded-full opacity-10 animate-pulse" />
-      <div className="absolute bottom-10 right-10 w-32 h-32 bg-[#FFD700] rounded-full opacity-10 animate-pulse animation-delay-2000" />
-    </section>
+      </section>
+    </>
   )
 }
 
