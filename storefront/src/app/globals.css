@@ -1,9 +1,26 @@
 @import "@medusajs/ui/styles.css";
-/* @import "../styles/beemax.css"; */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* BeeMax Brand Colors */
+:root {
+  /* Primary Colors */
+  --beemax-honey-yellow: #E0B25C;
+  --beemax-honey-yellow-hover: #d4a04f;
+  --beemax-cocoa-brown: #4A2C2A;
+  --beemax-ivory: #F8F3EE;
+  
+  /* Text Colors */
+  --beemax-text-primary: #4A2C2A;
+  --beemax-text-secondary: #5A5A5A;
+  --beemax-text-light: #ffffff;
+  
+  /* Accent Colors */
+  --beemax-accent-warm: #8B7355;
+  --beemax-accent-light: #FFF8F3;
+}
 
 @layer utilities {
   /* Chrome, Safari and Opera */

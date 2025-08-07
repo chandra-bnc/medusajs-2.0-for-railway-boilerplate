@@ -47,7 +47,7 @@ export const AUTH_CORS = process.env.AUTH_CORS
  */
 export const STORE_CORS = process.env.STORE_CORS 
   ?? (BACKEND_URL !== 'http://localhost:9000' ? 
-      'https://medusajs-20-for-railway-boilerplate-storefront-production.up.railway.app,http://localhost:8000' : 
+      '*' : // Allow all origins in production temporarily - should be restricted in production
       'http://localhost:8000')
 
 /**
