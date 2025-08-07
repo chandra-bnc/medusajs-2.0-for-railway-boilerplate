@@ -23,12 +23,8 @@
 }
 
 /* Typography */
-body {
-  font-family: var(--font-lato), system-ui, -apple-system, sans-serif;
-}
-
 .font-serif {
-  font-family: var(--font-playfair), Georgia, serif;
+  font-family: Georgia, serif;
 }
 
 @layer utilities {

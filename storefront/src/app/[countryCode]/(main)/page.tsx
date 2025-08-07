@@ -43,12 +43,18 @@ export default async function Home(props: {
 
     return (
       <div className="flex flex-col">
-        <Hero />
-        <BrandIntro />
-        <FeaturedCollections />
-        <Testimonials />
-        <ValuesSection />
-        <SupportContact />
+        <div className="min-h-[60vh] flex items-center justify-center bg-gray-50">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4">BeeMax</h1>
+            <p className="text-lg text-gray-600">Testing basic content</p>
+          </div>
+        </div>
+        {/* <Hero /> */}
+        {/* <BrandIntro /> */}
+        {/* <FeaturedCollections /> */}
+        {/* <Testimonials /> */}
+        {/* <ValuesSection /> */}
+        {/* <SupportContact /> */}
         <Suspense fallback={<SkeletonFeaturedProducts />}>
           <FeaturedProducts countryCode={countryCode} />
         </Suspense>

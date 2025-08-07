@@ -1,22 +1,8 @@
 import { getBaseURL } from "@/lib/util/env"
 import { Toaster } from "@medusajs/ui"
 import { Analytics } from "@vercel/analytics/next"
-import { Playfair_Display, Lato } from "next/font/google"
 import { Metadata } from "next"
 import "@/styles/globals.css"
-
-const playfair = Playfair_Display({ 
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
-
-const lato = Lato({ 
-  subsets: ['latin'],
-  weight: ['300', '400', '700'],
-  variable: '--font-lato',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -51,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-mode="light" className={`${playfair.variable} ${lato.variable}`}>
+    <html lang="en" data-mode="light">
       <body>
         <main className="relative">{props.children}</main>
         <Toaster className="z-[99999]" position="bottom-left" />
