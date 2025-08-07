@@ -92,6 +92,57 @@ a:hover {
   background-color: var(--beemax-ivory) !important;
 }
 
+/* BeeMax Showcase Specific Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Typography for showcase sections */
+.showcase-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.showcase-subheading {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Decorative elements */
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Smooth animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Gold foil effect */
+.gold-foil {
+  background: linear-gradient(
+    -45deg,
+    #D4A574 0%,
+    #F4E4C1 25%,
+    #FFD700 50%,
+    #F4E4C1 75%,
+    #D4A574 100%
+  );
+  background-size: 400% 400%;
+  animation: shimmer 3s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

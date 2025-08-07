@@ -1,13 +1,9 @@
 import { listRegions } from "@/lib/data/regions"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
-import FeaturedIn from "@/modules/home/components/featured-in"
-import FindUs from "@/modules/home/components/find-us"
+import BeemaxShowcase from "@/modules/home/components/beemax-showcase"
 import Founder from "@/modules/home/components/founder"
-import ProductShowcase from "@/modules/home/components/product-showcase"
-import Collaborations from "@/modules/home/components/collaborations"
 import IngredientsProcess from "@/modules/home/components/ingredients-process"
-import VideoSection from "@/modules/home/components/video-section"
 import SkeletonFeaturedProducts from "@/modules/skeletons/templates/skeleton-featured-products"
 import { Metadata } from "next"
 import { Suspense } from "react"
@@ -41,13 +37,9 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col">
       <Hero />
-      {/* <FeaturedIn /> */}
-      <ProductShowcase />
-      {/* <FindUs /> */}
-      {/* <VideoSection /> */}
+      <BeemaxShowcase />
       <Founder />
       <IngredientsProcess />
-      {/* <Collaborations /> */}
       <Suspense fallback={<SkeletonFeaturedProducts />}>
         <FeaturedProducts countryCode={countryCode} />
       </Suspense>
