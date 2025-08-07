@@ -41,13 +41,13 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col">
       <Hero />
-      <FeaturedIn />
+      {/* <FeaturedIn /> */}
       <ProductShowcase />
-      <FindUs />
-      <VideoSection />
+      {/* <FindUs /> */}
+      {/* <VideoSection /> */}
       <Founder />
       <IngredientsProcess />
-      <Collaborations />
+      {/* <Collaborations /> */}
       <Suspense fallback={<SkeletonFeaturedProducts />}>
         <FeaturedProducts countryCode={countryCode} />
       </Suspense>
