@@ -10,19 +10,19 @@ const FeaturedCollections = () => {
     {
       title: "Tiny Bites Waffle Mini Cones",
       description: "Bite-sized Belgian chocolate treats in milk, dark, white, and sea salt caramel",
-      image: "/beemax-waffle-cones.jpg",
+      image: "/montys-cream-cheese.jpg",
       href: "/collections/waffle-mini-cones"
     },
     {
       title: "Honey Spoon",
       description: "Portable raw honey spoons, perfect for snacking on the go",
-      image: "/beemax-honey-spoons.jpg",
+      image: "/montys-butter.jpg",
       href: "/collections/honey-spoons"
     },
     {
       title: "Raw & Acacia Honey Jars",
       description: "Full-jar natural honey from Turkey, traceable and quality-certified",
-      image: "/beemax-honey-jars.jpg",
+      image: "/montys-process.jpg",
       href: "/collections/honey-jars"
     }
   ]

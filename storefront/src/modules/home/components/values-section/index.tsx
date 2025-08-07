@@ -58,7 +58,7 @@ const ValuesSection = () => {
           
           <div className="relative h-96 rounded-lg overflow-hidden">
             <Image
-              src="/beemax-beekeepers.jpg"
+              src="/montys-founder.jpg"
               alt="BeeMax beekeepers and honey production"
               fill
               className="object-cover"

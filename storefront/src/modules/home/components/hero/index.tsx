@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="h-[75vh] small:h-[85vh] w-full relative overflow-hidden">
         {/* Background Image */}
         <Image
-          src="/beemax-hero.jpg"
+          src="/home-hero.png"
           alt="BeeMax Belgian Chocolate Waffle Cones and Honey Products"
           fill
           priority
