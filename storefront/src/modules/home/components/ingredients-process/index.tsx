@@ -2,22 +2,22 @@ import { Heading, Text } from "@medusajs/ui"
 
 const IngredientsProcess = () => {
   const process = [
-    { step: "1", title: "Cashews", description: "Premium quality, ethically sourced" },
-    { step: "2", title: "Sea Salt", description: "Natural mineral-rich" },
-    { step: "3", title: "Cultures", description: "Live probiotics" },
-    { step: "→", title: "Blend", description: "Small batch crafted" },
-    { step: "→", title: "Ferment", description: "Traditional methods" },
-    { step: "=", title: "Patience", description: "Time is our secret ingredient" }
+    { step: "1", title: "Belgian Chocolate", description: "Premium quality cocoa" },
+    { step: "2", title: "Natural Honey", description: "Aegean & Mediterranean" },
+    { step: "3", title: "Waffle Cones", description: "Traditional recipe" },
+    { step: "→", title: "Craft", description: "Small batch production" },
+    { step: "→", title: "Quality Test", description: "Lab certified" },
+    { step: "=", title: "BeeMax", description: "Maximum flavor" }
   ]
 
   const noIngredients = [
-    "No Gums",
-    "No Thickeners", 
-    "No Preservatives",
-    "No Seed Oils",
-    "No Lecithins",
-    "No Natural Flavoring",
-    "No Starches"
+    "No Artificial Flavors",
+    "No Preservatives", 
+    "No GMOs",
+    "No High Fructose Corn Syrup",
+    "No Artificial Colors",
+    "No Trans Fats",
+    "No Synthetic Additives"
   ]
 
   return (
@@ -25,9 +25,9 @@ const IngredientsProcess = () => {
       <div className="content-container">
         <div className="text-center mb-12">
           <Heading level="h2" className="text-3xl small:text-4xl text-[#2C2C2C] font-light mb-6">
-            PURITY OF INGREDIENTS.<br />
-            PURITY OF PROCESS.<br />
-            PATIENCE.
+            NATURAL INGREDIENTS.<br />
+            TRADITIONAL METHODS.<br />
+            MAXIMUM FLAVOR.
           </Heading>
         </div>
 

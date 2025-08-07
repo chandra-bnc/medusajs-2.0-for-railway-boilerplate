@@ -9,7 +9,7 @@ const Founder = () => {
           <div className="relative h-[400px] small:h-[500px]">
             <Image
               src="/montys-founder.jpg"
-              alt="Lauren Montgomery - Monty"
+              alt="BeeMax Founder"
               fill
               className="object-cover rounded-lg"
             />
@@ -18,33 +18,34 @@ const Founder = () => {
           <div className="space-y-6">
             <div>
               <Text className="text-[#8B7355] uppercase tracking-wider text-sm mb-4">
-                Meet the Founder
+                Our Story
               </Text>
               <Heading level="h2" className="text-3xl small:text-4xl text-[#2C2C2C] font-light mb-4">
-                Who is Monty?
+                The BeeMax Journey
               </Heading>
             </div>
 
             <div className="space-y-4">
               <Text className="text-[#5A5A5A] leading-relaxed">
-                I am a NYC/LA based, health supportive chef with an affinity for raw foods and fermentation. 
-                My mission is to spread health and higher awareness through my food, and to create a community 
-                of conscious consumers without making any sacrifices.
+                BeeMax was founded in 2021 during the pandemic—a time when people were seeking warmth 
+                and comfort in the simplest things. We blend centuries-old tradition with honey sourced 
+                from the Aegean and Mediterranean and real Belgian chocolate to deliver compact bites 
+                of pure pleasure.
               </Text>
               
               <div>
                 <Text className="font-semibold text-[#2C2C2C] text-lg">
-                  LAUREN MONTGOMERY "MONTY"
+                  BEEMAX TEAM
                 </Text>
                 <Text className="text-[#8B7355] text-sm">
-                  FOUNDER • HEALTH SUPPORTIVE CHEF • COACH
+                  CRAFTING NATURE'S SWEETNESS SINCE 2021
                 </Text>
               </div>
             </div>
 
             <div className="pt-6 border-t border-gray-200">
               <Text className="text-[#2C2C2C] font-light italic text-lg">
-                "Food is medicine. Food is life. Food is beauty."
+                "Nature's Sweetness, Perfectly Crafted"
               </Text>
             </div>
           </div>

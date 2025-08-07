@@ -8,21 +8,21 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 const ProductShowcase = () => {
   const products = [
     {
-      title: "CREAM CHEESE",
-      subtitle: "CLOUD CHEESE",
-      description: "Our cream cheese is made with 3 simple ingredients - cashews, sea salt, and cultures.",
+      title: "WAFFLE CONES",
+      subtitle: "TINY BITES",
+      description: "Belgian chocolate-filled waffle mini cones in milk, dark, white, and sea salt caramel flavors.",
       image: "/montys-cream-cheese.jpg",
-      imagePlaceholder: "[Add Cloud Cheese product image]",
-      features: ["Cultured", "Fermented", "Probiotic-rich"]
+      imagePlaceholder: "[Add Waffle Cones product image]",
+      features: ["Belgian Chocolate", "Natural Ingredients", "Bite-sized"]
     },
     {
-      title: "BUTTER",
-      subtitle: "CLOUD BUTTER",
-      description: "Our butter is made with 4 simple ingredients - cashews, coconut oil, almond oil, and sea salt.",
+      title: "HONEY PRODUCTS",
+      subtitle: "HONEY SPOONS & JARS",
+      description: "Raw honey spoons for on-the-go snacking and full jars of natural honey from Turkey.",
       image: "/montys-butter.jpg", 
-      imagePlaceholder: "[Add Cloud Butter product image]",
-      features: ["Spreadable", "Bakeable", "Meltable"],
-      size: "2 lb"
+      imagePlaceholder: "[Add Honey products image]",
+      features: ["Raw Honey", "Traceable", "Quality-certified"],
+      size: "Various"
     }
   ]
 
@@ -31,7 +31,7 @@ const ProductShowcase = () => {
       <div className="content-container">
         <div className="text-center mb-12">
           <Heading level="h2" className="text-3xl small:text-4xl text-[#2C2C2C] font-light mb-2">
-            PURE PLANT-BASED PORTFOLIO
+            PREMIUM BELGIAN CHOCOLATE & HONEY
           </Heading>
         </div>
 
