@@ -46,7 +46,7 @@ export default async function ProductPreview({
           </Text>
         </div>
         <div className="flex flex-col gap-0">
-          {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
+          <Text className="text-ui-fg-base text-sm font-medium">Log in to see prices</Text>
           <Text className="text-neutral-600 text-[0.5rem] small:text-[0.6rem]">Excl. VAT</Text>
         </div>
         <div className="flex justify-between items-center">

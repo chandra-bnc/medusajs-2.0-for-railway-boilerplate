@@ -52,16 +52,6 @@ const TinyBitesSection = () => {
             quality={100}
             sizes="100vw"
           />
-          
-          {/* Buy Now Button - Positioned even higher over the image */}
-          <div className="absolute bottom-32 right-8 small:bottom-40 small:right-12 z-10">
-            <LocalizedClientLink href="/collections/tiny-bites">
-              <button className="bg-white text-beemax-gold hover:bg-gray-100 px-6 py-3 small:px-8 small:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 font-medium text-base small:text-lg">
-                Buy Now
-                <ArrowRight className="inline-block w-4 h-4 ml-2" />
-              </button>
-            </LocalizedClientLink>
-          </div>
         </div>
       </section>
 
@@ -122,22 +112,13 @@ const TinyBitesSection = () => {
         </div>
 
           {/* Joy in every crunch section */}
-          <div className="text-center mb-12">
+          <div className="text-center">
             <Text className="text-2xl small:text-3xl text-beemax-text-primary font-light italic mb-5">
               Joy in every crunch.
             </Text>
             <LocalizedClientLink href="/categories/wafflecones">
               <button className="bg-[#4A2C2A] text-white hover:bg-[#3A1C1A] hover:scale-105 min-w-[200px] px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-bold text-base">
                 Buy Now
-              </button>
-            </LocalizedClientLink>
-          </div>
-
-          {/* Section CTA */}
-          <div className="text-center">
-            <LocalizedClientLink href="/store">
-              <button className="bg-beemax-gold text-beemax-deep-brown hover:bg-beemax-gold-hover min-w-[250px] px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-base">
-                Shop Now
               </button>
             </LocalizedClientLink>
           </div>
