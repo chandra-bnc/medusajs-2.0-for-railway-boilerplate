@@ -39,35 +39,28 @@ const TinyBitesSection = () => {
 
   return (
     <>
-      {/* Hero Section with Tiny Bites Header */}
-      <section className="relative h-[70vh] small:h-[80vh] medium:h-[90vh] overflow-hidden">
-        {/* Background Image with Overlay */}
+      {/* Hero Section */}
+      <section className="relative h-[70vh] small:h-[80vh] medium:h-[90vh] overflow-hidden bg-white">
+        {/* Background Image - No overlay */}
         <div className="absolute inset-0">
           <Image
             src="/home-hero.png"
             alt="BeeMax Premium Products"
             fill
             priority
-            className="object-cover object-center"
+            className="object-contain object-center"
             quality={100}
           />
-          {/* Dark gradient overlay for text visibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/60" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="content-container text-center">
-            <Heading className="text-5xl small:text-6xl medium:text-7xl font-serif text-white mb-4 drop-shadow-lg">
-              Tiny Bites
-            </Heading>
-            <Text className="text-2xl small:text-3xl font-serif text-white/90 mb-6 font-light italic">
-              Big Flavor. Tiny Cones.
-            </Text>
-            <Text className="text-xl text-white/80 max-w-2xl mx-auto font-light">
-              Perfectly portioned waffle cones filled with premium Belgian chocolate
-            </Text>
-          </div>
+        {/* Buy Now Button - Bottom Right */}
+        <div className="absolute bottom-8 right-8 small:bottom-12 small:right-12 z-10">
+          <LocalizedClientLink href="/collections/tiny-bites">
+            <button className="bg-beemax-deep-brown text-white hover:bg-beemax-neutral-800 px-6 py-3 small:px-8 small:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 font-medium text-base small:text-lg">
+              Buy Now
+              <ArrowRight className="inline-block w-4 h-4 ml-2" />
+            </button>
+          </LocalizedClientLink>
         </div>
       </section>
 
