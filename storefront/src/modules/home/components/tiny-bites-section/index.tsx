@@ -121,6 +121,18 @@ const TinyBitesSection = () => {
           ))}
         </div>
 
+          {/* Joy in every crunch section */}
+          <div className="text-center mb-12">
+            <Text className="text-2xl small:text-3xl text-beemax-text-primary font-light italic mb-5">
+              Joy in every crunch.
+            </Text>
+            <LocalizedClientLink href="/categories/wafflecones">
+              <button className="bg-[#4A2C2A] text-white hover:bg-[#3A1C1A] hover:scale-105 min-w-[200px] px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-bold text-base">
+                Buy Now
+              </button>
+            </LocalizedClientLink>
+          </div>
+
           {/* Section CTA */}
           <div className="text-center">
             <LocalizedClientLink href="/store">

@@ -85,7 +85,7 @@ const DubaiChocolateSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col small:flex-row gap-4 justify-center medium:justify-start">
               <LocalizedClientLink href="/store">
-                <button className="bg-beemax-gold text-beemax-deep-brown hover:bg-beemax-gold-hover px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 shadow-xl hover:shadow-2xl w-full small:w-auto">
+                <button className="bg-white text-black hover:bg-gray-100 px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 shadow-xl hover:shadow-2xl w-full small:w-auto">
                   Order Now
                   <ArrowRight className="inline-block w-5 h-5 ml-2" />
                 </button>
