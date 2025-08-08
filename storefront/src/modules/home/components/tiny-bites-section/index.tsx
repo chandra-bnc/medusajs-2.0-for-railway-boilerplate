@@ -40,9 +40,9 @@ const TinyBitesSection = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[70vh] small:h-[80vh] medium:h-[90vh] bg-white">
-        {/* Background Image Container */}
-        <div className="relative h-full">
+      <section className="relative bg-white">
+        {/* Background Image Container - Aspect ratio based on 3406x1270 */}
+        <div className="relative w-full" style={{ aspectRatio: '3406/1270' }}>
           <Image
             src="/home-hero.png"
             alt="BeeMax Premium Products"
@@ -50,6 +50,7 @@ const TinyBitesSection = () => {
             priority
             className="object-contain object-center"
             quality={100}
+            sizes="100vw"
           />
           
           {/* Buy Now Button - Positioned even higher over the image */}
