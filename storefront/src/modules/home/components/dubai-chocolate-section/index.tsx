@@ -7,7 +7,7 @@ import { ArrowRight } from "@medusajs/icons"
 
 const DubaiChocolateSection = () => {
   return (
-    <section className="relative py-16 small:py-24 overflow-hidden bg-gradient-to-br from-[#4A2C2A] via-[#6B4423] to-[#4A2C2A]">
+    <section className="relative py-16 small:py-24 overflow-hidden bg-white">
       {/* Gold foil texture overlay */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 gold-foil" />
@@ -69,36 +69,36 @@ const DubaiChocolateSection = () => {
             </Text>
             
             {/* Main Heading */}
-            <Heading className="text-4xl small:text-5xl medium:text-6xl font-serif text-white mb-6">
+            <Heading className="text-4xl small:text-5xl medium:text-6xl font-serif text-beemax-deep-brown mb-6">
               Dubai Chocolate
             </Heading>
             
             {/* Description */}
-            <Text className="text-xl small:text-2xl text-white/90 mb-8 font-light">
+            <Text className="text-xl small:text-2xl text-beemax-text-primary mb-8 font-light">
               Try the viral chocolate bar with pistachio cream.
             </Text>
 
 
             {/* Extended Description */}
-            <Text className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl mx-auto medium:mx-0">
+            <Text className="text-lg text-beemax-text-secondary mb-8 leading-relaxed max-w-xl mx-auto medium:mx-0">
               Indulge in layers of crispy kataifi, smooth pistachio cream, 
               and premium Belgian chocolate. Each bar is handcrafted with 
               the finest ingredients for an unforgettable taste experience.
             </Text>
 
             {/* Product Options */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8">
-              <Text className="text-sm text-[#FFD700] mb-3 font-semibold">
+            <div className="bg-beemax-neutral-100 rounded-2xl p-6 mb-8">
+              <Text className="text-sm text-beemax-gold mb-3 font-semibold">
                 AVAILABLE IN:
               </Text>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <Text className="text-white font-semibold">Single Bar</Text>
-                  <Text className="text-[#F4E4C1] text-sm">150g</Text>
+                <div className="bg-white rounded-lg p-3 text-center">
+                  <Text className="text-beemax-text-primary font-semibold">Single Bar</Text>
+                  <Text className="text-beemax-text-secondary text-sm">150g</Text>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <Text className="text-white font-semibold">Gift Box</Text>
-                  <Text className="text-[#F4E4C1] text-sm">3 x 150g</Text>
+                <div className="bg-white rounded-lg p-3 text-center">
+                  <Text className="text-beemax-text-primary font-semibold">Gift Box</Text>
+                  <Text className="text-beemax-text-secondary text-sm">3 x 150g</Text>
                 </div>
               </div>
             </div>
@@ -106,12 +106,12 @@ const DubaiChocolateSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col small:flex-row gap-4 justify-center medium:justify-start">
               <LocalizedClientLink href="/store">
-                <button className="bg-[#FFD700] text-[#4A2C2A] hover:bg-[#FFC700] px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 w-full small:w-auto">
+                <button className="bg-beemax-gold text-beemax-deep-brown hover:bg-beemax-gold-hover px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 shadow-xl hover:shadow-2xl w-full small:w-auto">
                   Order Now
                   <ArrowRight className="inline-block w-5 h-5 ml-2" />
                 </button>
               </LocalizedClientLink>
-              <button className="bg-transparent border-2 border-[#FFD700] text-[#FFD700] hover:bg-[#FFD700] hover:text-[#4A2C2A] px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300">
+              <button className="bg-transparent border-2 border-beemax-gold text-beemax-gold hover:bg-beemax-gold hover:text-beemax-deep-brown px-8 py-4 rounded-full font-medium text-lg transition-all duration-300">
                 Watch Full Video
               </button>
             </div>

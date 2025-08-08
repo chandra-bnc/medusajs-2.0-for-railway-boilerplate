@@ -1,6 +1,5 @@
 import { listRegions } from "@/lib/data/regions"
 import FeaturedProducts from "@/modules/home/components/featured-products"
-import HeroEnhanced from "@/modules/home/components/hero-enhanced"
 import TinyBitesSection from "@/modules/home/components/tiny-bites-section"
 import DiscoverJoySection from "@/modules/home/components/discover-joy-section"
 import DubaiChocolateSection from "@/modules/home/components/dubai-chocolate-section"
@@ -37,7 +36,6 @@ export default async function Home(props: {
 
   return (
     <div className="flex flex-col">
-      <HeroEnhanced />
       <TinyBitesSection />
       <DiscoverJoySection />
       <DubaiChocolateSection />
