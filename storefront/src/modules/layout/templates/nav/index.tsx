@@ -24,18 +24,6 @@ export async function NavigationHeader() {
   return (
     <div className="sticky top-0 inset-x-0 bg-white z-50 border-b border-neutral-200">
       <header className="relative">
-        {/* Top bar for premium messaging */}
-        <div className="bg-beemax-neutral-100 border-b border-neutral-200 hidden small:block">
-          <div className="content-container py-2 flex justify-between items-center">
-            <p className="text-xs tracking-wider text-beemax-text-secondary uppercase">
-              Premium Belgian Chocolates & Natural Honey
-            </p>
-            <p className="text-xs tracking-wider text-beemax-text-secondary">
-              Wholesale Orders: +1 (800) BEEMAX
-            </p>
-          </div>
-        </div>
-
         {/* Main navigation */}
         <div className="content-container">
           <div className="flex items-center justify-between h-16 small:h-20">
@@ -65,26 +53,6 @@ export async function NavigationHeader() {
                 <Suspense fallback={<SkeletonMegaMenu />}>
                   <MegaMenuWrapper />
                 </Suspense>
-                <div className="flex items-center space-x-8 ml-8">
-                  <LocalizedClientLink 
-                    href="/collections" 
-                    className="text-sm font-medium text-beemax-text-primary hover:text-beemax-gold transition-colors duration-200 tracking-wide uppercase"
-                  >
-                    Collections
-                  </LocalizedClientLink>
-                  <LocalizedClientLink 
-                    href="/about" 
-                    className="text-sm font-medium text-beemax-text-primary hover:text-beemax-gold transition-colors duration-200 tracking-wide uppercase"
-                  >
-                    About
-                  </LocalizedClientLink>
-                  <LocalizedClientLink 
-                    href="/wholesale" 
-                    className="text-sm font-medium text-beemax-text-primary hover:text-beemax-gold transition-colors duration-200 tracking-wide uppercase"
-                  >
-                    Wholesale
-                  </LocalizedClientLink>
-                </div>
               </nav>
             </div>
 

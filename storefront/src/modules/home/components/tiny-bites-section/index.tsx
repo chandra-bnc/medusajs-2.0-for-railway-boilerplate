@@ -40,9 +40,9 @@ const TinyBitesSection = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[70vh] small:h-[80vh] medium:h-[90vh] overflow-hidden bg-white">
-        {/* Background Image - No overlay */}
-        <div className="absolute inset-0">
+      <section className="relative h-[70vh] small:h-[80vh] medium:h-[90vh] bg-white">
+        {/* Background Image Container */}
+        <div className="relative h-full">
           <Image
             src="/home-hero.png"
             alt="BeeMax Premium Products"
@@ -51,16 +51,16 @@ const TinyBitesSection = () => {
             className="object-contain object-center"
             quality={100}
           />
-        </div>
-
-        {/* Buy Now Button - Bottom Right */}
-        <div className="absolute bottom-8 right-8 small:bottom-12 small:right-12 z-10">
-          <LocalizedClientLink href="/collections/tiny-bites">
-            <button className="bg-beemax-deep-brown text-white hover:bg-beemax-neutral-800 px-6 py-3 small:px-8 small:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 font-medium text-base small:text-lg">
-              Buy Now
-              <ArrowRight className="inline-block w-4 h-4 ml-2" />
-            </button>
-          </LocalizedClientLink>
+          
+          {/* Buy Now Button - Positioned over the image */}
+          <div className="absolute bottom-8 right-8 small:bottom-12 small:right-12 z-10">
+            <LocalizedClientLink href="/collections/tiny-bites">
+              <button className="bg-beemax-deep-brown text-white hover:bg-beemax-neutral-800 px-6 py-3 small:px-8 small:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 font-medium text-base small:text-lg">
+                Buy Now
+                <ArrowRight className="inline-block w-4 h-4 ml-2" />
+              </button>
+            </LocalizedClientLink>
+          </div>
         </div>
       </section>
 
@@ -123,7 +123,7 @@ const TinyBitesSection = () => {
           {/* Section CTA */}
           <div className="text-center">
             <LocalizedClientLink href="/store">
-              <button className="bg-beemax-deep-brown text-white hover:bg-beemax-neutral-800 min-w-[250px] px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-base">
+              <button className="bg-beemax-deep-brown !text-white hover:bg-beemax-neutral-800 hover:!text-white min-w-[250px] px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-base">
                 Explore Full Collection
               </button>
             </LocalizedClientLink>
