@@ -52,10 +52,10 @@ const TinyBitesSection = () => {
             quality={100}
           />
           
-          {/* Buy Now Button - Positioned over the image */}
-          <div className="absolute bottom-8 right-8 small:bottom-12 small:right-12 z-10">
+          {/* Buy Now Button - Positioned higher over the image */}
+          <div className="absolute bottom-20 right-8 small:bottom-24 small:right-12 z-10">
             <LocalizedClientLink href="/collections/tiny-bites">
-              <button className="bg-beemax-deep-brown text-white hover:bg-beemax-neutral-800 px-6 py-3 small:px-8 small:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 font-medium text-base small:text-lg">
+              <button className="bg-white text-beemax-gold hover:bg-gray-100 px-6 py-3 small:px-8 small:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 font-medium text-base small:text-lg">
                 Buy Now
                 <ArrowRight className="inline-block w-4 h-4 ml-2" />
               </button>
@@ -123,8 +123,8 @@ const TinyBitesSection = () => {
           {/* Section CTA */}
           <div className="text-center">
             <LocalizedClientLink href="/store">
-              <button className="bg-beemax-deep-brown !text-white hover:bg-beemax-neutral-800 hover:!text-white min-w-[250px] px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-base">
-                Explore Full Collection
+              <button className="bg-beemax-gold text-beemax-deep-brown hover:bg-beemax-gold-hover min-w-[250px] px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-base">
+                Shop Now
               </button>
             </LocalizedClientLink>
           </div>
